@@ -1,0 +1,20 @@
+@startuml
+
+skin rose
+
+actor “Usuario base” as main
+package “Actividades” {
+  main -up- (Buscar actividades)
+  (Buscar actividades) .> (Filtrar actividades) : include
+  main -up- (Visualizar información de las actividades)
+  package “Eventos” {
+	(Ver eventos) .> (Visualizar información de las actividades) : extends
+  }
+}
+package “Configuración” {
+  main -- (Cambiar idioma)
+  main -- (Cambiar tema)
+  main -- (Visualizar datos de contacto)
+}
+
+@enduml

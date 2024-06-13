@@ -1,0 +1,111 @@
+\documentclass[a4paper,11pt,spanish]{report}
+
+% Paquetes para idioma español, imágenes, y enlaces
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage[backend=biber,citestyle=numeric]{biblatex}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+
+\newlist{enumitem}{enumerate}{8}
+\setlist[enumitem,2]{label*=\bfseries{\arabic*.}}
+\setlist[enumitem,3]{label*=\bfseries{\arabic*.}}
+\setlist[enumitem,4]{label*=\bfseries{\arabic*.}}
+\setlist[enumitem,5]{label*=\bfseries{\arabic*.}}
+\setlist[enumitem,6]{label*=\bfseries{\arabic*.}}
+\setlist[enumitem,7]{label*=\bfseries{\arabic*.}}
+
+\usepackage{xcolor}
+\newcommand\myworries[1]{\textcolor{red}{#1}}
+\usepackage{plantuml}
+\usepackage{csquotes}
+\usepackage{multirow}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{adjustbox}
+\usepackage{changepage}
+\usepackage{array}
+\usepackage[table]{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{positioning,shapes.geometric}
+\usepackage{float}
+\usepackage{aeguill}
+\usepackage{listings}
+   
+\definecolor{plantucolor0000}{RGB}{0,0,0}
+\definecolor{plantucolor0001}{RGB}{254,254,206}
+\definecolor{plantucolor0002}{RGB}{168,0,54}
+
+\bibliography{referencias}
+ 
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+
+\newenvironment{identificacionCasoDeUso}
+  {\begin{table}[H] \rowcolors{1}{gray!25}{white}}
+  {\end{table}}
+
+\newenvironment{analisisCasoDeUso}
+  {\begin{table}[H] \rowcolors{1}{gray!25}{white}}
+  {\end{table}}
+
+\newenvironment{planificacion}
+{\begin{table}[H] \rowcolors{1}{gray!25}{white}}
+{\end{table}}
+
+\newenvironment{clases}
+{\begin{table}[H] \rowcolors{1}{gray!25}{white}}
+{\end{table}}
+
+\setlength{\oddsidemargin}{-6mm}
+\setlength{\evensidemargin}{-6mm}
+\setlength{\topmargin}{-12mm}
+\setlength{\textwidth}{172mm}
+\setlength{\textheight}{247mm}
+
+\pagestyle{fancy}
+\fancyhead{}
+\fancyhead[C]{\rightmark}
+\renewcommand{\footrulewidth}{0.5pt}
+
+\begin{document}
+\input{0-Portada/title}
+\tableofcontents
+\listoffigures
+\listoftables
+
+\begin{abstract}
+	Este proyecto se enfoca en una aplicación móvil y web que ha sido solicitada por una pequeña empresa de turismo , la cual busca dar visibilidad a sus servicios de turismo en Asturias.
+	A través de la aplicación se ofrecerá una amplia selección de tours y actividades para que los turistas disfruten de la naturaleza, cultura y gastronomía en la región.
+	Al final de la actividad, todos los participantes podrán valorar el servicio ofrecido y dejar una reseña para ayudar a otros usuarios a planificar sus viajes.
+	Por otro lado, la aplicación permitirá a la empresa de turismo agregar y administrar sus actividades a través de un panel de administración. En este apartado, la empresa podrá gestionar los detalles de cada actividad, como la descripción, el horario, la ubicación y el precio. Asimismo, podrán supervisar y gestionar los roles y permisos de los usuarios, permitiéndoles asignar diferentes actividades a los guías.
+	Por último, para los usuarios con rol de guía se ha desarrollado un apartado específico en la aplicación que les permitirá obtener un listado de los eventos que tendrán próximamente y podre planificar su trabajo de la mejor manera.
+	Palabras clave: Turismo, Asturias, gestión, reservar, actividades.
+\end{abstract}
+
+\input{1-PlanificacionDelSistemaDeInformacion/1-PlanificacionDelSistemaDeInformacion}
+\input{2-DefinicionDeLaArquitecturaTecnologica/2-DefinicionDeLaArquitecturaTecnologica}
+\input{3-EstudioDeViabilidadDelSistema/3-EstudioDeViabilidadDelSistema}
+\input{4-PlanificacionYGestionDelTFG/4-PlanificacionYGestionDelTFG}
+\input{5-AnalisisDelSistemaDeInformacion/5-AnalisisDelSistemaDeInformacion}
+\input{6-DiseñoDelSistemaDeInformacion/6-DiseñoDelSistemaDeInformacion}
+\input{7-Construccion/7-Construccion}
+\input{Apendices/apendices}
+%\input{8-ImplantaciónYAceptaciónDelSistema}
+
+% \chapter*{Apéndices}
+% \tableofcontents
+
+% \section*{Apéndice 1: kahdfjhwoefh}
+% \addcontentsline{toc}{section}{Apéndice 1: kahdfjhwoefh}
+% % Contenido del Apéndice 1
+
+% \section*{Anexo 3: afhige}
+% \addcontentsline{toc}{section}{Anexo 3: afhige}
+% % Contenido del Anexo 3
+
+
+\printbibliography
+\end{document}

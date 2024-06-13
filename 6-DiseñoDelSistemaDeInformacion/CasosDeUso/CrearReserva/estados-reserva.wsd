@@ -1,0 +1,9 @@
+@startuml
+
+[*] --> Confirmada : Crea la reserva
+Confirmada --> Completada : Ya ha pasado la fecha del evento
+Confirmada --> Cancelada : Cancela la reserva
+
+Completada --> [*]
+Cancelada -->[*]
+@enduml

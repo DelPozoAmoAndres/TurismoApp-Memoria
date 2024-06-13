@@ -1,0 +1,16 @@
+@startgantt
+Project starts 2023-05-30
+
+[Elaboración de la planificación final] lasts 1 day
+[Elaboración de la planificación final] starts 2023-05-30
+[Elaboración de la planificación final] ends 2023-05-30
+
+[Cálculo del presupuesto final] lasts 1 day
+[Cálculo del presupuesto final] starts 2023-05-31
+[Cálculo del presupuesto final] ends 2023-05-31
+
+[Reunión de cierre del proyecto] lasts 1 day
+[Reunión de cierre del proyecto] starts 2023-05-31
+[Reunión de cierre del proyecto] ends 2023-05-31
+
+@endgantt

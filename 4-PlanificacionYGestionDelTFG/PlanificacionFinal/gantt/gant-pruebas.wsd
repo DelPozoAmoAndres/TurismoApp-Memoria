@@ -1,0 +1,15 @@
+@startgantt
+Project starts 2024-04-01
+saturday are closed
+sunday are closed
+
+[Desarrollo de pruebas unitarias] starts 2024-04-01
+[Desarrollo de pruebas unitarias] ends 2024-04-24
+
+[Desarrollo de pruebas de integración] starts 2024-04-25
+[Desarrollo de pruebas de integración] ends 2024-05-17
+
+[Desarrollo de pruebas de usabilidad] starts 2024-05-20
+[Desarrollo de pruebas de usabilidad] ends 2024-05-28
+
+@endgantt

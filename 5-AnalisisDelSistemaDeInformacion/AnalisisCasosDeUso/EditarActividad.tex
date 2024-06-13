@@ -1,0 +1,24 @@
+\begin{analisisCasoDeUso}
+	\centering
+	\begin{tabular} { | m{3cm} | p{13cm} | }
+		\hline
+		\multicolumn{2}{ | c | }{\bfseries Editar una actividad}                                                                     \\ \hline
+		{\bfseries Precondiciones}  & Debe haber actividades registradas.                                                            \\ \hline
+		{\bfseries Postcondiciones} & La actividad refleja los cambios realizados                                                    \\ \hline
+		{\bfseries Actores    }     & Usuario identificado con rol administrador.                                                    \\ \hline
+		{\bfseries Descripción}     & {\bfseries 1.} El usuario selecciona en el menú la opción “Dashboard” .                         \\
+		                            & {\bfseries 2.} El sistema muestra la pantalla principal del dashboard junto a un menú lateral. \\
+		                            & {\bfseries 3.} El usuario selecciona en el menú lateral la opción “Actividades” .               \\
+		                            & {\bfseries 4.} El sistema muestra un listado de actividades ya existentes.                     \\
+		                            & {\bfseries 5.} El usuario selecciona la opción “Editar” de la actividad que quiere editar.     \\
+		                            & {\bfseries 6.} El usuario realiza los cambios deseados.                                        \\
+		                            & {\bfseries 7.} El sistema valida los datos.                                                    \\
+		                            & {\bfseries 8.} El sistema actualiza la actividad.                                              \\ \hline
+		{\bfseries Variaciones}     & {\bfseries Escenario alternativo 1:} Si los datos ingresados son incorrectos.                  \\
+		                            & {\bfseries 8.} El sistema muestra un mensaje de error.                                         \\
+		                            & {\bfseries 9.} Vuelve al paso 6.                                                               \\ \hline
+		{\bfseries Excepciones}     & Si ocurre un error en el proceso de edición, se muestra un mensaje de error.                   \\ \hline
+		{\bfseries Notas }          &                                                                                                \\ \hline
+	\end{tabular}
+	\caption{Caos de uso - Editar una actividad}
+\end{analisisCasoDeUso}

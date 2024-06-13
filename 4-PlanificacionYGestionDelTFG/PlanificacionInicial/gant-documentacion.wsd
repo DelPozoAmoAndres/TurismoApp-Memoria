@@ -1,0 +1,16 @@
+@startgantt
+Project starts 2023-05-29
+
+[Manual de instalación] lasts 1 day
+[Manual de instalación] starts 2023-05-29
+[Manual de instalación] ends 2023-05-29
+
+[Manual de ejecución] lasts 1 day
+[Manual de ejecución] starts 2023-05-29
+[Manual de ejecución] ends 2023-05-30
+
+[Manual de usuario] lasts 2 days
+[Manual de usuario] starts 2023-05-29
+[Manual de usuario] ends 2023-05-30
+
+@endgantt

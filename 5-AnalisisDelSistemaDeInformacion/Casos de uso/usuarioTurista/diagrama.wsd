@@ -1,0 +1,22 @@
+@startuml
+
+skin rose
+
+actor “Usuario turista” as main
+
+package “Reservas” {
+  main -up- (Visualizar la información de una reserva)
+  main -up- (Listar las reservas realizadas)
+  main -up- (Realizar una reserva)
+  main -up- (Cancelar una reserva)
+  (Realizar una reserva) .> (Pagar reserva) : include
+}
+
+package “Actividades” {
+    main -- (Publicar una valoración)
+    main -- (Borrar una valoración)
+    (Ver una valoración) <. (Visualizar la información de una reserva) : include
+}
+
+
+@enduml

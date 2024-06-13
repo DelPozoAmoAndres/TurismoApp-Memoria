@@ -1,0 +1,26 @@
+@startgantt
+Project starts 2023-06-13
+
+saturday are closed
+sunday are closed
+
+
+[Definición del alcance del sistema] starts 2023-06-13
+[Definición del alcance del sistema] ends 2023-06-13
+
+[Análisis de los requisitos] starts 2023-06-13
+[Análisis de los requisitos] ends 2023-06-15
+
+[Análisis de los casos de uso] starts 2023-06-15
+[Análisis de los casos de uso] ends 2023-06-19
+
+[Análisis de clases] starts 2023-06-19
+[Análisis de clases] ends 2023-06-20
+
+[Diseño de los prototipos de las interfaces de usuario] starts 2023-06-20
+[Diseño de los prototipos de las interfaces de usuario] ends 2023-06-20
+
+[Elaboración del plan de pruebas] starts 2023-06-21
+[Elaboración del plan de pruebas] ends 2023-06-22
+
+@endgantt

@@ -1,0 +1,94 @@
+@startuml
+title Proceso de Reserva de Evento
+
+actor Usuario
+entity "Cliente" as Client
+entity "ActivityController" as Controller
+entity "EventController" as EventController
+entity "PaymentController" as PaymentController
+entity "ReservationController" as ReservationController
+entity "ActivityService" as Service
+entity "EventService" as EventService
+entity "PaymentService" as PaymentService
+entity "ReservationService" as ReservationService
+entity "Stripe" as Stripe
+database "Base de Datos" as DB
+
+Usuario -> Client : Pulsa al botón "ver disponibilidad" de la vista de la actividad
+activate Client
+Client -> Controller : GET /activity/:id/events
+activate Controller
+Controller -> Service : getEvents(actividadID)
+activate Service
+Service --> DB : findEvents(actividadID)
+activate DB
+DB --> Service : Devuelve los eventos no cancelados que tienen como mínimo 1 plaza
+deactivate DB
+Service --> Controller : Devuelve los eventos
+deactivate Service
+Controller --> Client : Devuelve los eventos
+deactivate Controller
+Client --> Usuario : Muestra los días con eventos en el calendario
+deactivate Client
+loop
+  Usuario -> Client : Selecciona fecha en el calendario
+  activate Client
+  Client --> Usuario : Muestra los eventos de ese día
+  deactivate Client
+  Usuario -> Client : Indica número de personas
+  activate Client
+  Client -> Client : Filtra los eventos por el número de personas
+  Client --> Usuario : Muestra los eventos con disponibilidad suficiente
+  deactivate Client
+end
+Usuario -> Client : Seleccionar hora del evento
+activate Client
+Usuario -> Client : Pulsa el botón de "Reservar"
+
+  Client -> PaymentController : POST  /payment/intent
+  activate PaymentController
+  PaymentController -> PaymentService : createIntent(precio)
+  activate PaymentService
+  PaymentService -> Stripe : createIntent(precio)
+  activate Stripe
+  Stripe --> PaymentService : Devuelve el identificador de referencia del pago
+  deactivate Stripe
+  PaymentService --> PaymentController : Devuelve el identificador de referencia del pago
+  deactivate PaymentService
+  PaymentController --> Client : Devuelve el identificador de referencia del pago
+  deactivate PaymentController
+  Client -> Client : Establece el identificador de referencia para el formulario bancario
+  Client --> Usuario : Muestra una vista para rellanar datos de contacto y bancarios
+  deactivate Client
+  opt
+    Usuario -> Client : Cambia los datos de contacto
+    activate Client
+  end
+  Usuario -> Client : Introduce datos bancarios
+  Usuario -> Client : Pulsar el botón de "Pagar"
+  Client -> Stripe : pay(referencia)
+  activate Stripe
+  Stripe --> Client : Devuelve el estado del pago
+  deactivate Stripe
+  alt Si se ha completado el pago
+    Client -> ReservationController : POST /reservations
+    activate ReservationController
+    ReservationController -> ReservationService : createReservation(reserva,referencia)
+    activate ReservationService
+    ReservationService -> DB : save(reserva)
+    activate DB
+    DB -> DB : findEventAndUpdate(reserva.eventoID)
+    DB --> ReservationService : Devuelve la confirmación de la reserva
+    deactivate DB
+    ReservationService --> ReservationController : Devuelve la confirmación de la reserva
+    deactivate ReservationService
+    ReservationController --> Client : Devuelve la confirmación de la reserva
+    deactivate ReservationController
+    Client --> Usuario : Mostrar vista de confirmación de reserva
+  else No se ha podido completar el pago
+    Client --> Usuario : Se muestra el error asociado al estado
+    deactivate Client
+end
+
+
+@enduml

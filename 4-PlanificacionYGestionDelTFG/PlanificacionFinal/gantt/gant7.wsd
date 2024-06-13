@@ -1,0 +1,11 @@
+@startgantt
+Project starts 2024-03-01
+saturday are closed
+sunday are closed
+
+[Implementación] starts 2024-03-01 
+[Implementación] ends 2024-03-29
+[Pruebas] starts 2024-04-01 
+[Pruebas] ends 2024-05-01
+
+@endgantt

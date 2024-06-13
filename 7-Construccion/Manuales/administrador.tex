@@ -1,0 +1,214 @@
+Este manual proporciona una guía detallada para preparar el entorno de desarrollo.
+
+\subsubsection{FontEnd}
+
+La aplicación está alojada en un repositorio de Git y se empaquetará utilizando Android Studio y Xcode para plataformas móviles.
+Para subirla a la web se utilizará Vercel y solo se necesita llevar los cambios a la rama main para que se despliegue automáticamente.
+
+\subsubsection{Paso 1: Clonar el Repositorio}
+
+\begin{enumerate}
+	\item Abre tu terminal o línea de comandos.
+	\item Clona el repositorio de Git utilizando el siguiente comando:
+	      \begin{lstlisting}[language=bash]
+    git clone https://github.com/DelPozoAmoAndres/TurismoApp-Cliente
+    \end{lstlisting}
+	\item Navega al directorio del proyecto clonado:
+	      \begin{lstlisting}[language=bash]
+    cd TurismoApp-Cliente
+    \end{lstlisting}
+\end{enumerate}
+
+\subsubsection{Paso 2: Instalación de Dependencias}
+
+\begin{enumerate}
+	\item Asegúrate de estar en el directorio raíz del proyecto.
+	\item Instala las dependencias del proyecto utilizando npm:
+	      \begin{lstlisting}[language=bash]
+    npm install
+    \end{lstlisting}
+\end{enumerate}
+
+\subsubsection{Paso 3: Configuración de Ionic}
+
+\begin{enumerate}
+	\item Instala Ionic CLI globalmente:
+	      \begin{lstlisting}[language=bash]
+    npm install -g @ionic/cli
+    \end{lstlisting}
+	\item Verifica la instalación de Ionic:
+	      \begin{lstlisting}[language=bash]
+    ionic --version
+    \end{lstlisting}
+\end{enumerate}
+
+\subsubsection{Paso 4: Configuración de Android Studio}
+
+\begin{enumerate}
+	\item Abre Android Studio y sigue las instrucciones para instalar las dependencias necesarias, como el SDK de Android.
+	\item Configura el entorno de desarrollo para permitir la compilación de aplicaciones Ionic:
+	      \begin{itemize}
+		      \item Ve a \texttt{File > Settings > Appearance \& Behavior > System Settings > Android SDK}.
+		      \item Asegúrate de tener instalados los SDK Platforms y SDK Tools necesarios (Android SDK Build-Tools, Android Emulator, Android SDK Platform-Tools, etc.).
+	      \end{itemize}
+\end{enumerate}
+
+\subsubsection{Paso 4.1: Configuración de Variables de Entorno}
+Para que Android Studio pueda compilar la aplicación, es necesario configurar las variables de entorno necesarias.
+
+En caso de estar utilizando Windows, sigue los siguientes pasos:
+\begin {itemize}
+\item Abre el Panel de Control y ve a \texttt{Sistema y Seguridad > Sistema > Configuración Avanzada del Sistema}.
+\item Haz clic en el botón \texttt{Variables de Entorno}.
+\item En la sección de Variables del Sistema, haz clic en \texttt{Nueva} y añade las siguientes variables:
+\begin{itemize}
+	\item \texttt{ANDROID\_HOME} con el valor de la ruta al directorio de instalación de Android SDK.
+	\item \texttt{JAVA\_HOME} con el valor de la ruta al directorio de instalación de Java JDK.
+\end{itemize}
+\end{itemize}
+
+En caso de estar utilizando macOS, sigue los siguientes pasos:
+\begin {itemize}
+\item Abre el terminal y edita el archivo \texttt{.bash\_profile} o \texttt{.zshrc}:
+\begin{lstlisting}[language=bash]
+    nano ~/.bash_profile
+    \end{lstlisting}
+\item Añade las siguientes líneas al archivo:
+\begin{lstlisting}[language=bash]
+    export ANDROID_HOME=/Users/USERNAME/Library/Android/sdk
+    export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_291.jdk/Contents/Home
+    export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
+    \end{lstlisting}
+\item Guarda los cambios y recarga el archivo de configuración:
+\begin{lstlisting}[language=bash]
+    source ~/.bash_profile
+    \end{lstlisting}
+\end {itemize}
+
+\subsubsection{Paso 4.2: Configuración de Dispositivos Virtuales}
+Para poder ejecutar la aplicación en un emulador de Android, es necesario configurar un dispositivo virtual en Android Studio. Sigue los siguientes pasos:
+\begin {itemize}
+\item Abre Android Studio y ve a \texttt{Tools > AVD Manager}.
+\item Haz clic en \texttt{Create Virtual Device} y selecciona un dispositivo de la lista.
+\item Descarga una imagen de sistema para el dispositivo seleccionado y haz clic en \texttt{Next}.
+\item Configura las opciones del dispositivo virtual y haz clic en \texttt{Finish}.
+\item Una vez creado el dispositivo virtual, haz clic en el botón de reproducción para iniciar el emulador.
+\end {itemize}
+
+
+\subsubsection{Paso 5: Configuración de Xcode (Solo para macOS)}
+
+\begin{enumerate}
+	\item Abre Xcode y asegúrate de tener las herramientas de línea de comandos instaladas:
+	      \begin{lstlisting}[language=bash]
+    xcode-select --install
+    \end{lstlisting}
+	\item Asegúrate de tener las últimas versiones de las herramientas necesarias (iOS SDK).
+\end{enumerate}
+
+\subsubsection{Paso 6: Ejecución de la Aplicación en un Navegador}
+
+\begin{enumerate}
+	\item Para verificar que todo está configurado correctamente, ejecuta la aplicación en tu navegador:
+	      \begin{lstlisting}[language=bash]
+    ionic serve
+    \end{lstlisting}
+\end{enumerate}
+
+\subsubsection{Paso 7: Compilación para Android}
+
+\begin{enumerate}
+	\item Asegúrate de que tu dispositivo Android esté en modo de desarrollador y conectado a tu computadora, o configura un emulador en Android Studio.
+	\item Construye la aplicación para Android:
+	      \begin{lstlisting}[language=bash]
+    ionic capacitor build android
+    \end{lstlisting}
+	\item Abre el proyecto en Android Studio:
+	      \begin{lstlisting}[language=bash]
+    npx cap open android
+    \end{lstlisting}
+	\item Desde Android Studio, puedes compilar y ejecutar la aplicación en un dispositivo o emulador.
+\end{enumerate}
+
+\subsubsection{Paso 8: Compilación para iOS}
+
+\begin{enumerate}
+	\item Asegúrate de que tu dispositivo iOS esté conectado a tu Mac, o configura un simulador en Xcode.
+	\item Construye la aplicación para iOS:
+	      \begin{lstlisting}[language=bash]
+    ionic capacitor build ios
+    \end{lstlisting}
+	\item Abre el proyecto en Xcode:
+	      \begin{lstlisting}[language=bash]
+    npx cap open ios
+    \end{lstlisting}
+	\item Desde Xcode, puedes compilar y ejecutar la aplicación en un dispositivo o simulador.
+\end{enumerate}
+
+\subsubsection{Backend}
+
+La aplicación está alojada en un repositorio de Git y se desplegará en AWS E2C usando Docker.
+El despliegue se realizará utilizando GitHub Actions para automatizar el proceso.
+
+\subsubsection{Paso 1: Clonar el Repositorio}
+
+\begin{enumerate}
+	\item Abre tu terminal o línea de comandos.
+	\item Clona el repositorio de Git utilizando el siguiente comando:
+	      \begin{lstlisting}[language=bash]
+    git clone https://github.com/DelPozoAmoAndres/TurismoApp-Server
+    \end{lstlisting}
+	\item Navega al directorio del proyecto clonado:
+	      \begin{lstlisting}[language=bash]
+    cd TurismoApp-Server
+    \end{lstlisting}
+\end{enumerate}
+
+\subsubsection{Paso 2: Instalación de Dependencias}
+
+\begin{enumerate}
+	\item Asegúrate de estar en el directorio raíz del proyecto.
+	\item Instala las dependencias del proyecto utilizando npm:
+	      \begin{lstlisting}[language=bash]
+    npm install
+    \end{lstlisting}
+\end{enumerate}
+
+\subsubsection{Paso 3: Configuración del Entorno}
+
+Crea un archivo de configuración de entorno y renómbralo a \texttt{.env}. Deberás añadir las siguientes variables de entorno:
+\begin {itemize}
+\item \texttt{CLAVE\_SECRETA\_DE\_STRIPE}: Clave secreta de Stripe.
+\item \texttt{JWT\_SECRET}: Clave secreta para firmar los tokens JWT.
+\item \texttt{MONGODB\_URI}: URI de conexión a la base de datos MongoDB.
+\item \texttt{PORT}: Puerto en el que se ejecutará el servidor.
+\end {itemize}
+
+\subsubsection{Paso 4: Ejecución del Servidor Localmente}
+
+\begin{enumerate}
+	\item Asegúrate de estar en el directorio raíz del proyecto.
+	\item Ejecuta el siguiente comando para iniciar el servidor localmente en modo de desarrollo:
+	      \begin{lstlisting}[language=bash]
+    npm run dev
+    \end{lstlisting}
+	\item Para ejecutar el servidor en modo de producción, utiliza los siguientes comandos:
+	      \begin{lstlisting}[language=bash]
+    npm run build
+    npm start
+    \end{lstlisting}
+	\item El servidor se ejecutará en el puerto especificado en el archivo de configuración del entorno.
+	\item Puedes acceder al servidor localmente en tu navegador utilizando la URL \texttt{http://localhost:PUERTO}, donde \texttt{PUERTO} es el número de puerto especificado en el archivo de configuración del entorno.
+\end{enumerate}
+
+
+\subsubsection{Paso 5: Actualizaciones y Despliegues Continuos}
+
+\begin{enumerate}
+	\item Cada vez que realices un push a la rama \texttt{main}, GitHub Actions se encargará de construir y desplegar la nueva imagen de Docker en AWS ECS automáticamente. Para ello utilizará las claves secretas configuradas en GitHub y el archivo \texttt{.github/workflows/aws.yml}.
+	\item Monitorea el estado del despliegue y asegúrate de que todo funciona correctamente después de cada actualización.
+\end{enumerate}
+
+
+
+

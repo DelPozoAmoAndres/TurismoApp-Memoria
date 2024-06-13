@@ -1,0 +1,15 @@
+@startgantt
+Project starts 2024-05-28
+saturday are closed
+sunday are closed
+
+[Manual de instalación] starts 2024-05-28
+[Manual de instalación] ends 2024-05-29
+
+[Manual de ejecución] starts 2024-05-29
+[Manual de ejecución] ends 2024-05-29
+
+[Manual de usuario] starts 2024-05-29
+[Manual de usuario] ends 2024-05-31
+
+@endgantt

@@ -1,0 +1,24 @@
+@startgantt
+Project starts 2023-08-07
+saturday are closed
+sunday are closed
+
+[Creación de los repositorios] starts 2023-08-07
+[Creación de los repositorios] ends 2023-08-07
+
+[Creación del servidor de aplicaciones] starts 2023-08-08
+[Creación del servidor de aplicaciones] ends 2023-08-08
+
+[Creación de la aplicación cliente] starts 2023-08-09
+[Creación de la aplicación cliente] ends 2023-08-09
+
+[Integración de la base de datos] starts 2023-08-10
+[Integración de la base de datos] ends 2023-08-12
+
+[Implementación del subsistema de gestión de usuarios] starts 2023-08-14
+[Implementación del subsistema de gestión de usuarios] ends 2023-08-24
+
+[Implementación del subsistema de gestión de actividades] starts 2023-08-25
+[Implementación del subsistema de gestión de actividades] ends 2023-10-16
+
+@endgantt

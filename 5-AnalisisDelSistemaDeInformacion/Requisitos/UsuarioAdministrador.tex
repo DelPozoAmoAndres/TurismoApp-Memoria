@@ -1,0 +1,314 @@
+\begin{enumitem}[label=\bfseries{RAdm \arabic*.},leftmargin=*]
+	\item El sistema permitirá a todos los usuarios con rol de administrador eliminar cuentas.
+	\begin{enumitem}[label*=\bfseries{\arabic*.}]
+		\item El sistema no permitirá que se eliminen todas las cuentas de administradores.
+		\item El sistema mostrará un mensaje de confirmación.
+	\end{enumitem}
+	\item El sistema permitirá a los usuarios con rol de administrador crear cuentas.
+	\begin{enumitem}[label*=\bfseries{\arabic*.}]
+		\item El sistema requerirá que se rellenen los siguientes campos obligatorios.
+		\begin{enumitem}[label*=\bfseries{\arabic*.}]
+			\item Nombre y apellidos del usuario.
+			\begin{enumitem}[label*=\bfseries{\arabic*.}]
+				\item El sistema comprobará que la cadena introducida es mayor o igual que 8.
+			\end{enumitem}
+			\item Dirección de correo electrónico.
+			\begin{enumitem}[label*=\bfseries{\arabic*.}]
+				\item El sistema comprobará que coincide con un patrón de correo electrónico.
+				\item El sistema comprobará que ese correo electrónico no ha sido registrado por otro usuario.
+			\end{enumitem}
+			\item Contraseña.
+			\begin{enumitem}[label*=\bfseries{\arabic*.}]
+				\item El sistema comprobará que la contraseña introducida tiene una longitud mínima de 8 y máxima de 16.
+			\end{enumitem}
+			\item Rol.
+			\begin{enumitem}[label*=\bfseries{\arabic*.}]
+				\item El sistema proporcionará una lista de roles predefinidos.
+				\begin{enumitem}[label*=\bfseries{\arabic*.}]
+					\item Administrador.
+					\item Guía.
+					\item Usuario.
+				\end{enumitem}
+			\end{enumitem}
+		\end{enumitem}
+		\item El sistema tendrá los siguientes campos opcionales.
+		\begin{enumitem}[label*=\bfseries{\arabic*.}]
+			\item País.
+			\item Teléfono.
+			\begin{enumitem}[label*=\bfseries{\arabic*.}]
+				\item El sistema comprobará que el número de teléfono introducido es valido.
+			\end{enumitem}
+			\item Fecha de nacimiento.
+			\begin{enumitem}[label*=\bfseries{\arabic*.}]
+				\item El sistema comprobará que el formato de la fecha de nacimiento es correcto.
+				\item El sistema comprobará que la fecha de nacimiento introducida es posterior al día de hoy
+			\end{enumitem}
+		\end{enumitem}
+		\item Al completar todos los campos obligatorios, el sistema habilitará un botón para confirmar el registro.
+		\begin{enumitem}[label*=\bfseries{\arabic*.}]
+			\item El sistema comprobará que los datos introducidos en los campos están rellenos correctamente.
+			\begin{enumitem}[label*=\bfseries{\arabic*.}]
+				\item El sistema mostrará un mensaje de error si no se cumple alguna de las comprobaciones de los campos.
+				\item En caso de cumplir todas las comprobaciones, el sistema guardará los datos de registro.
+			\end{enumitem}
+		\end{enumitem}
+		\item El sistema permitirá cancelar la creación de cuenta.
+	\end{enumitem}
+	\item El sistema permitirá a los usuarios con rol de administrador listar todos los usuarios registrados.
+	\begin{enumitem}[label*=\bfseries{\arabic*.}]
+		\item El sistema permitirá hacer búsquedas aplicando o no algún filtro.
+		\begin{enumitem}[label*=\bfseries{\arabic*.}]
+			\item Búsquedas por Nombre.
+			\item Búsquedas por Apellidos.
+			\item Búsquedas por Dirección de correo electrónico.
+			\item Filtrar por Rol.
+		\end{enumitem}
+	\end{enumitem}
+	\item El sistema permitirá a los usuarios con rol de administrador visualizar los datos de un usuario buscado.
+	\begin{enumitem}[label*=\bfseries{\arabic*.}]
+		\item Nombre y Apellidos.
+		\item Dirección de correo electrónico.
+		\item Rol.
+		\item Fecha de nacimiento.
+		\item País.
+		\item Teléfono.
+		\item Lista de reservas realizadas.
+		\begin{enumitem}[label*=\bfseries{\arabic*.}]
+			\item Fecha.
+			\item Nombre de la actividad.
+			\item Localidad.
+			\item Estado de la reserva.
+			\item Número de plazas.
+			\item Precio.
+		\end{enumitem}
+	\end{enumitem}
+	\item El sistema permitirá a los usuarios con rol de administrador editar información de un usuario buscado.
+	\begin{enumitem}[label*=\bfseries{\arabic*.}]
+		\item El sistema permitirá modificar los siguientes campos.
+		\begin{enumitem}[label*=\bfseries{\arabic*.}]
+			\item Nombre y Apellidos.
+			\begin{enumitem}[label*=\bfseries{\arabic*.}]
+				\item El sistema comprobará que la cadena introducida es mayor o igual que 8.
+			\end{enumitem}
+			\item Dirección de correo electrónico.
+			\begin{enumitem}[label*=\bfseries{\arabic*.}]
+				\item El sistema comprobará que coincide con un patrón de correo electrónico.
+				\item El sistema comprobará que ese correo electrónico no ha sido registrado por otro usuario.
+			\end{enumitem}
+			\item Fecha de nacimiento.
+			\begin{enumitem}[label*=\bfseries{\arabic*.}]
+				\item El sistema comprobará que el formato de la fecha de nacimiento es correcto.
+				\item El sistema comprobará que la fecha de nacimiento introducida es posterior al día de hoy.
+			\end{enumitem}
+			\item Teléfono.
+			\begin{enumitem}[label*=\bfseries{\arabic*.}]
+				\item El sistema comprobará que el número de teléfono introducido es valido.
+			\end{enumitem}
+			\item País.
+		\end{enumitem}
+		\item El sistema permitirá cancelar la modificación de los datos del usuario.
+		\item Al editar algún campo, el sistema deberá habilitar un botón para confirmar el guardado.
+		\begin{enumitem}[label*=\bfseries{\arabic*.}]
+			\item El sistema comprobará que los campos cumplen con sus comprobaciones individuales.
+			\begin{enumitem}[label*=\bfseries{\arabic*.}]
+				\item El sistema mostrará un mensaje de error si no se cumple alguna de las comprobaciones de los campos.
+				\item En caso de cumplir con todas las comprobaciones, el sistema mostrará un mensaje de que se han actualizado correctamente los datos del usuario.
+			\end{enumitem}
+		\end{enumitem}
+	\end{enumitem}
+	\item El sistema permitirá a los usuarios con rol de administrador gestionar las reservas de un usuario buscado.
+	\begin{enumitem}[label*=\bfseries{\arabic*.}]
+		\item El sistema permitirá cambiar el estado de compra de las reservas.
+		\begin{enumitem}[label*=\bfseries{\arabic*.}]
+			\item El sistema proporcionará una lista de estados predefinidos.
+			\begin{enumitem}[label*=\bfseries{\arabic*.}]
+				\item Pago completado.
+				\item Pago pendiente.
+				\item Cancelada.
+				\begin{enumitem}[label*=\bfseries{\arabic*.}]
+					\item El sistema realizará la devolución del dinero de la reserva en su totalidad.
+				\end{enumitem}
+			\end{enumitem}
+		\end{enumitem}
+
+	\end{enumitem}
+	\item El sistema permitirá a los usuarios con rol de administrador crear actividades.
+	\begin{enumitem}[label*=\bfseries{\arabic*.}]
+		\item El sistema requerirá que se rellenen los siguientes campos obligatorios.
+		\begin{enumitem}[label*=\bfseries{\arabic*.}]
+			\item Nombre.
+			\begin{enumitem}[label*=\bfseries{\arabic*.}]
+				\item El sistema comprobará que la cadena introducida no es vacía.
+			\end{enumitem}
+			\item Localidad.
+			\begin{enumitem}[label*=\bfseries{\arabic*.}]
+				\item El sistema comprobará que la cadena introducida no es vacía.
+			\end{enumitem}
+			\item Duración.
+			\begin{enumitem}[label*=\bfseries{\arabic*.}]
+				\item El sistema comprobará que la duración introducida es un número entero positivo.
+			\end{enumitem}
+			\item Descripción.
+			\begin{enumitem}[label*=\bfseries{\arabic*.}]
+				\item El sistema comprobará que la cadena introducida no es vacía.
+			\end{enumitem}
+			\item Imágenes.
+			\begin{enumitem}[label*=\bfseries{\arabic*.}]
+				\item El sistema comprobará que las imágenes introducidas son válidas.
+				\item El sistema comprobará que las imágenes introducidas no superan un tamaño máximo.
+				\item El sistema comprobará que las imágenes introducidas no superan un número máximo.
+				\item El sistema comprobará que hay al menos una imagen.
+			\end{enumitem}
+		\end{enumitem}
+		\item El sistema requerirá que se le asigne un estado.
+		\begin{enumitem}[label*=\bfseries{\arabic*.}]
+			\item El sistema proporcionará una lista de estados predefinidos.
+			\begin{enumitem}[label*=\bfseries{\arabic*.}]
+				\item Activa.
+				\item Cancelada temporalmente.
+				\item Deshabilitada.
+			\end{enumitem}
+		\end{enumitem}
+	\end{enumitem}
+	\item El sistema permitirá a los usuarios con rol de administrador modificar actividades.
+	\begin{enumitem}[label*=\bfseries{\arabic*.}]
+		\item El sistema permitirá modificar los siguientes campos.
+		\begin{enumitem}[label*=\bfseries{\arabic*.}]
+			\item Nombre.
+			\begin{enumitem}[label*=\bfseries{\arabic*.}]
+				\item El sistema comprobará que la cadena introducida no es vacía.
+			\end{enumitem}
+			\item Localidad.
+			\begin{enumitem}[label*=\bfseries{\arabic*.}]
+				\item El sistema comprobará que la cadena introducida no es vacía.
+			\end{enumitem}
+			\item Duración.
+			\begin{enumitem}[label*=\bfseries{\arabic*.}]
+				\item El sistema comprobará que la duración introducida es un número entero positivo.
+			\end{enumitem}
+			\item Descripción.
+			\begin{enumitem}[label*=\bfseries{\arabic*.}]
+				\item El sistema comprobará que la cadena introducida no es vacía.
+			\end{enumitem}
+			\item Imágenes.
+			\begin{enumitem}[label*=\bfseries{\arabic*.}]
+				\item El sistema comprobará que las imágenes introducidas son válidas.
+				\item El sistema comprobará que las imágenes introducidas no superan un tamaño máximo.
+				\item El sistema comprobará que las imágenes introducidas no superan un número máximo.
+				\item El sistema comprobará que hay al menos una imagen.
+			\end{enumitem}
+		\end{enumitem}
+		\item El sistema requerirá que se le asigne un estado.
+		\begin{enumitem}[label*=\bfseries{\arabic*.}]
+			\item El sistema proporcionará una lista de estados predefinidos.
+			\begin{enumitem}[label*=\bfseries{\arabic*.}]
+				\item Activa.
+				\item Cancelada temporalmente.
+				\item Deshabilitada.
+			\end{enumitem}
+		\end{enumitem}
+		\item El sistema permitirá cancelar la modificación.
+		\item Al editar algún campo, el sistema deberá habilitar un botón para confirmar el guardado.
+		\begin{enumitem}[label*=\bfseries{\arabic*.}]
+			\item El sistema comprobará que los campos cumplen con sus comprobaciones individuales.
+			\begin{enumitem}[label*=\bfseries{\arabic*.}]
+				\item El sistema mostrará un mensaje de error si no se cumple alguna de las comprobaciones de los campos.
+				\item En caso de cumplir con todas las comprobaciones, el sistema mostrará un mensaje de que se han actualizado correctamente los datos de la actividad.
+			\end{enumitem}
+		\end{enumitem}
+	\end{enumitem}
+	\item El sistema permitirá a los usuarios con rol de administrador eliminar permanentemente actividades.
+	\begin{enumitem}[label*=\bfseries{\arabic*.}]
+		\item El sistema no permitirá que se eliminen todas las cuentas de administradores.
+		\item El sistema mostrará un mensaje de confirmación.
+	\end{enumitem}
+	\item El sistema permitirá a los usuarios con rol de administrador añadir eventos a las actividades.
+	\begin{enumitem}[label*=\bfseries{\arabic*.}]
+		\item El sistema requerirá que se completen los siguientes datos:
+		\begin{enumitem}[label*=\bfseries{\arabic*.}]
+			\item Actividad.
+			\begin{enumitem}[label*=\bfseries{\arabic*.}]
+				\item El sistema proporcionará una lista de actividades existentes.
+			\end{enumitem}
+			\item Precio
+			\begin{enumitem}[label*=\bfseries{\arabic*.}]
+				\item El sistema comprobará que el precio introducido es un número decimal positivo.
+			\end{enumitem}
+			\item Número máximo de asistentes.
+			\begin{enumitem}[label*=\bfseries{\arabic*.}]
+				\item El sistema comprobará que el número introducido es un número entero positivo.
+			\end{enumitem}
+			\item Fecha.
+			\begin{enumitem}[label*=\bfseries{\arabic*.}]
+				\item El sistema permitirá seleccionar un evento recurrente.
+				\begin{enumitem}[label*=\bfseries{\arabic*.}]
+					\item El sistema permitirá seleccionar un evento recurrente por rango de fechas.
+					\begin{enumitem}[label*=\bfseries{\arabic*.}]
+						\item El sistema permitirá seleccionar en que días de la semana se repetirá el evento.
+						\item El sistema comprobará que la fecha de inicio es anterior a la fecha de fin.
+						\item El sistema comprobará que la fecha de inicio es posterior al día de hoy.
+					\end{enumitem}
+					\item El sistema permitirá seleccionar un evento recurrente por días del año.
+					\begin{enumitem}[label*=\bfseries{\arabic*.}]
+						\item El sistema comprobará que se han seleccionado al menos un día.
+						\item El sistema comprobará que las fechas seleccionadas son posteriores al día de hoy.
+					\end{enumitem}
+				\end{enumitem}
+				\item El sistema permitirá seleccionar un evento único.
+				\begin{enumitem}[label*=\bfseries{\arabic*.}]
+					\item El sistema comprobará que la fecha introducida es posterior al día de hoy.
+				\end{enumitem}
+			\end{enumitem}
+			\item Guía.
+			\begin{enumitem}[label*=\bfseries{\arabic*.}]
+				\item El sistema proporcionará una lista de guías existentes que no tengan ningún evento solapado con el evento a crear.
+			\end{enumitem}
+			\item Idioma.
+			\begin{enumitem}[label*=\bfseries{\arabic*.}]
+				\item El sistema proporcionará una lista de idiomas predefinidos.
+				\begin{enumitem}[label*=\bfseries{\arabic*.}]
+					\item Español.
+					\item Inglés.
+					\item Francés.
+				\end{enumitem}
+			\end{enumitem}
+		\end{enumitem}
+	\end{enumitem}
+	\item El sistema permitirá a los usuarios con rol de administrador modificar los eventos.
+	\begin{enumitem}[label*=\bfseries{\arabic*.}]
+		\item El sistema permitirá modificar los siguientes campos.
+		\begin{enumitem}[label*=\bfseries{\arabic*.}]
+			\item Precio
+			\begin{enumitem}[label*=\bfseries{\arabic*.}]
+				\item El sistema comprobará que el precio introducido es un número decimal positivo.
+			\end{enumitem}
+			\item Número máximo de asistentes.
+			\begin{enumitem}[label*=\bfseries{\arabic*.}]
+				\item El sistema comprobará que el número introducido es un número entero positivo.
+			\end{enumitem}
+			\item Fecha.
+			\begin{enumitem}[label*=\bfseries{\arabic*.}]
+				\item El sistema comprobará que la fecha introducida es posterior al día de hoy.
+			\end{enumitem}
+		\end{enumitem}
+	\end{enumitem}
+	\item El sistema permitirá a los usuarios con rol de administrador eliminar permanentemente eventos.
+	\begin{enumitem}[label*=\bfseries{\arabic*.}]
+		\item El sistema mostrará un mensaje de confirmación.
+		\item El sistema no permitirá eliminar eventos que ya hayan sido realizados.
+		\item El sistema cancelará todas las reservas asociadas al evento.
+		\begin{enumitem}[label*=\bfseries{\arabic*.}]
+			\item El sistema devolverá el dinero integro de las reservas canceladas.
+		\end{enumitem}
+	\end{enumitem}
+	\item El sistema permitirá a los usuarios con rol de administrador ver estadísticas de la aplicación en tiempo real.
+	\begin{enumitem}[label*=\bfseries{\arabic*.}]
+		\item El sistema mostrará el número de reservas realizadas.
+		\item El sistema mostrará el dinero total recaudado.
+		\item El sistema mostrará el número de usuarios registrados.
+		\item El sistema mostrará un diagrama con el porcentaje de ocupación de las actividades.
+		\item El sistema mostrará un diagrama de como se reparten las categorizaciones de las actividades con reservas realizadas.
+		\item El sistema mostrará un diagrama con el porcentaje de cancelación de las actividades
+		\item El sistema mostrará un listado con las reservas más recientes.
+	\end{enumitem}
+\end{enumitem}

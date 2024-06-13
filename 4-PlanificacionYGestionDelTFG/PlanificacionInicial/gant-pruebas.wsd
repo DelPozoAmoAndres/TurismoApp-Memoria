@@ -1,0 +1,16 @@
+@startgantt
+Project starts 2023-05-14
+
+[Desarrollo de pruebas unitarias] lasts 7 days
+[Desarrollo de pruebas unitarias] starts 2023-05-14
+[Desarrollo de pruebas unitarias] ends 2023-05-21
+
+[Desarrollo de pruebas de integración] lasts 6 days
+[Desarrollo de pruebas de integración] starts 2023-05-21
+[Desarrollo de pruebas de integración] ends 2023-05-26
+
+[Desarrollo de pruebas de usabilidad] lasts 3 days
+[Desarrollo de pruebas de usabilidad] starts 2023-05-27
+[Desarrollo de pruebas de usabilidad] ends 2023-05-29
+
+@endgantt

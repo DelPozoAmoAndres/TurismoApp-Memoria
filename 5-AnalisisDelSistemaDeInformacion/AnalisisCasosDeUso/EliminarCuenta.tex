@@ -1,0 +1,24 @@
+\begin{analisisCasoDeUso}
+	\centering
+	\begin{tabular} { | m{3cm} | p{13cm} | }
+		\hline
+		\multicolumn{2}{ | c | }{\bfseries Eliminar cuenta}                                                                      \\ \hline
+		{\bfseries Precondiciones}  & El usuario debe estar identificado.                                                        \\ \hline
+		{\bfseries Postcondiciones} & La cuenta del usuario es eliminada del sistema y se cierra sesión en el sistema.           \\ \hline
+		{\bfseries Actores    }     & Usuario                                                                                    \\ \hline
+		{\bfseries Descripción}     & {\bfseries 1.} El usuario selecciona en el menú la opción “Área Personal” .                 \\
+		                            & {\bfseries 2.} El sistema muestra la página de perfil.                                     \\
+		                            & {\bfseries 3.} El usuario visualiza la información de su perfil.                           \\
+		                            & {\bfseries 4.} El usuario selecciona la opción “Eliminar Cuenta” .                          \\
+		                            & {\bfseries 5.} El sistema pide confirmación.                                               \\
+		                            & {\bfseries 6.} El usuario confirma la eliminación                                          \\
+		                            & {\bfseries 7.} El sistema elimina la cuenta.                                               \\
+		                            & {\bfseries 8.} El sistema cierra la sesión del usuario.                                    \\ \hline
+		{\bfseries Variaciones}     & {\bfseries Escenario alternativo 1:} En caso de que se cancele la eliminación              \\
+		                            & {\bfseries 6.} El usuario cancela la eliminación                                           \\
+		                            & {\bfseries 7.} El sistema cancela la eliminación                                           \\ \hline
+		{\bfseries Excepciones}     & Si ocurre un error en el proceso de eliminación de cuenta, se muestra un mensaje de error. \\ \hline
+		{\bfseries Notas }          &                                                                                            \\ \hline
+	\end{tabular}
+	\caption{Caso de uso - Eliminar cuenta}
+\end{analisisCasoDeUso}

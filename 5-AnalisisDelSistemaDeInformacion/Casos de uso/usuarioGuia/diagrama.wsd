@@ -1,0 +1,12 @@
+@startuml
+
+skin rose
+
+actor “Usuario guía” as main
+
+package “Actividades” {
+  package “Eventos” {
+    main -- (ver eventos próximos)
+  }
+}
+@enduml

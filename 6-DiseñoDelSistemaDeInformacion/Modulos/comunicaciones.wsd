@@ -1,0 +1,32 @@
+@startuml
+
+node “Servidor web” <<nube>> {
+  rectangle “Página web"
+}
+
+node AWS <<nube>> {
+    node “EC2” <<servicio>> as EC2 {
+        rectangle “Servidor"
+    } 
+}
+
+node “MongoDB Atlas"<<nube>> {
+  node MongoDB <<clúster>> {
+    node “Base de datos"{
+      rectangle Usuarios <<schema>> 
+     rectangle Actividades <<schema>>
+     }
+  }
+}
+
+node “Usuario” <<device>> {
+  rectangle Browser
+  rectangle App
+}
+
+AWS -down- “Base de datos” : “URI"
+AWS -right- “Servidor web” : “HTTPS:443"
+"Página web” -down- Browser : “HTTPS:443"
+AWS -down- App : “HTTPS:443"
+
+@enduml

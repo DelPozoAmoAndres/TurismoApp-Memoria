@@ -1,0 +1,72 @@
+\begin{clases}
+	\centering
+\begin{tabular}{|>{\raggedright\arraybackslash}p{4cm}|p{12cm}|}
+		\hline
+		\textbf{Nombre de la clase}   & \textbf{Activity}                                                                                                                                                                                                                         \\
+		\hline
+		\textbf{Descripción}          & Representa una actividad ofrecida donde cada instancia incluye información detallada como ubicación, duración y una descripción. La clase gestiona los eventos asociados que pueden ocurrir en diferentes fechas o en diferentes idiomas. \\
+		\hline
+		\textbf{Atributos Propuestos} & \textbf{name}: string - Nombre de la actividad.                                                                                                                                                                                           \\
+		                              & \textbf{location}: string - Ubicación de la actividad.                                                                                                                                                                                    \\
+		                              & \textbf{duration}: number - Duración de la actividad.                                                                                                                                                                                     \\
+		                              & \textbf{description}: string - Descripción de la actividad.                                                                                                                                                                               \\
+		                              & \textbf{state}: ActivityState - Estado actual de la actividad (\textit{definido en el enum ActivityState}).                                                                                                                               \\
+		                              & \textbf{images}: string[] - Imágenes relacionadas con la actividad.                                                                                                                                                                       \\
+		\hline
+		\textbf{Métodos Propuestos}   & \textbf{addEvents(Events[] events): void}                                                                                                                                                                                                 \\
+		                              & Añade eventos a la actividad.                                                                                                                                                                                                             \\
+		                              & \textbf{delete(): void}                                                                                                                                                                                                                   \\
+		                              & Elimina la actividad.                                                                                                                                                                                                                     \\
+		                              & \textbf{listEvents(Date date): void}                                                                                                                                                                                                      \\
+		                              & Lista eventos según la fecha proporcionada.                                                                                                                                                                                               \\
+		\hline
+	\end{tabular}
+	\caption{Clases - Activity}
+\end{clases}
+
+\begin{clases}
+	\centering
+\begin{tabular}{|>{\raggedright\arraybackslash}p{4cm}|p{12cm}|}
+		\hline
+		\textbf{Nombre de la clase}   & \textbf{Event}                                                                                                                                                                              \\
+		\hline
+		\textbf{Descripción}          & Encapsula los detalles de un evento específico asociado a una actividad. Esto incluye información sobre la capacidad de asientos, reservaciones realizadas, precio, y el idioma del evento. \\
+		\hline
+		\textbf{Atributos Propuestos} & \textbf{id}: string - Identificador único del evento.                                                                                                                                       \\
+		                              & \textbf{seats}: number - Número total de asientos disponibles.                                                                                                                              \\
+		                              & \textbf{bookedSeats}: number - Asientos reservados.                                                                                                                                         \\
+		                              & \textbf{date}: Date - Fecha del evento.                                                                                                                                                     \\
+		                              & \textbf{price}: number - Precio por asiento.                                                                                                                                                \\
+		                              & \textbf{language}: string - Idioma en que se realiza el evento.                                                                                                                             \\
+		\hline
+		\textbf{Métodos Propuestos}   & \textbf{cancel(): void}                                                                                                                                                                     \\
+		                              & Cancela el evento.                                                                                                                                                                          \\
+		                              & \textbf{listReservations(PaymentStatus status): Reservation[]}                                                                                                                              \\
+		                              & Lista las reservaciones basadas en su estado de pago.                                                                                                                                       \\
+
+		\hline
+	\end{tabular}
+	\caption{Clases - Events}
+\end{clases}
+
+\begin{clases}
+	\centering
+\begin{tabular}{|>{\raggedright\arraybackslash}p{4cm}|p{12cm}|}
+		\hline
+		\textbf{Nombre de la clase}   & \textbf{Review}                                                                                                                                                                                    \\
+		\hline
+		\textbf{Descripción}          & Representa las reseñas que realizan los usuarios sobre las actividades. Actúa como un mecanismo para que los usuarios expresen su satisfacción o insatisfacción y mejoren la calidad de la oferta. \\
+		\hline
+		\textbf{Atributos Propuestos} & \textbf{score}: number - Puntuación otorgada a la actividad o evento.                                                                                                                              \\
+		                              & \textbf{comment}: string - Comentario detallado sobre la experiencia.                                                                                                                              \\
+		\hline
+		\textbf{Métodos Propuestos}   & \textbf{publish(): void}                                                                                                                                                                           \\
+		                              & Publica la reseña.                                                                                                                                                                                 \\
+		                              & \textbf{delete(): void}                                                                                                                                                                            \\
+		                              & Elimina la reseña.                                                                                                                                                                                 \\
+		                              & \textbf{edit(string score, string comment): void}                                                                                                                                                  \\
+		                              & Edita la reseña.                                                                                                                                                                                   \\
+		\hline
+	\end{tabular}
+	\caption{Clases - Review}
+\end{clases}

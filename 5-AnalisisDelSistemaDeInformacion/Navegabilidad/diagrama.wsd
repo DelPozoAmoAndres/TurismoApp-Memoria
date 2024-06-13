@@ -1,0 +1,51 @@
+@startuml
+[*] --> Inicio
+
+Inicio --> Inicio_de_sesión : "Iniciar Sesión"
+Inicio_de_sesión --> Inicio : "Login Exitoso"
+Inicio_de_sesión --> Inicio : "Login Fallido"
+
+Inicio_de_sesión --> Registro : "Registrarse"
+Registro --> Inicio : "Registro Exitoso"
+Registro --> Inicio : "Registro Fallido"
+
+Inicio --> Perfil : "Área personal"
+Perfil --> Perfil_editar : "Editar Perfil"
+Perfil_editar --> Perfil : "Cancelar"
+Perfil_editar --> Perfil : "Guardar Cambios"
+Perfil --> Inicio : "Cerrar sesión"
+Perfil --> Perfil : "Eliminar cuenta” 
+Perfil --> Inicio : "Inicio"
+
+Inicio --> Buscar_actividades : "Empezar a buscar"
+Buscar_actividades --> Inicio : "Volver"
+Buscar_actividades --> Detalles_de_actividad : "Ver más"
+Detalles_de_actividad --> Buscar_actividades : "Volver"
+Detalles_de_actividad -->  Realizar_reserva : "Reservar"
+Realizar_reserva --> Detalles_de_actividad : "Volver"
+Realizar_reserva --> Inicio : "Ir a inicio"
+Realizar_reserva --> Lista_de_reservas : "Ver reservas"
+
+Inicio --> Lista_de_reservas : "Reservas"
+Lista_de_reservas --> Inicio : "Inicio"
+Lista_de_reservas --> Gestión_de_reserva : "Gestionar"
+Gestión_de_reserva --> Lista_de_reservas :” Volver"
+
+Inicio --> Eventos_próximos : "Eventos próximos"
+Eventos_próximos --> Detalles_de_actividad : "Ver información"
+Eventos_próximos --> Inicio : "Inicio"
+
+Inicio --> Dashboard : "Panel de control"
+Dashboard --> Inicio : "Inicio"
+Dashboard --> Dashboard_actividades : "Actividades"
+Dashboard_actividades --> Detalles_de_actividad : "Detalles"
+Dashboard_actividades --> Dashboard : "Panel de control"
+Dashboard_actividades --> Dashboard_usuarios : "Usuarios"
+Dashboard_usuarios --> Dashboard_detalles_usuario : "Detalles"
+Dashboard_detalles_usuario --> Dashboard_usuarios : "Volver"
+Dashboard_usuarios --> Dashboard_actividades : "Actividades"
+Dashboard_usuarios --> Dashboard :"Panel de control"
+Dashboard_actividades --> Inicio : "Inicio"
+Dashboard_usuarios --> Inicio : "Inicio"
+
+@enduml

@@ -1,0 +1,9 @@
+{
+    "cSpell.language": "es-ES,es",
+    "files.exclude": {
+        "build": true
+    },
+    "plantuml.exportOutDir": "out",
+    "plantuml.exportSubFolder": false,
+    "plantuml.exportFormat": "png",
+}

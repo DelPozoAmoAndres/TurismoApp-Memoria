@@ -1,0 +1,20 @@
+@startgantt
+Project starts 2023-04-22
+
+[Implementación] lasts 18 days
+[Implementación] starts at 2023-04-22
+[Implementación] ends at 2023-05-14
+
+[Pruebas] lasts 16 days
+[Pruebas] starts at 2023-05-14
+[Pruebas] ends at 2023-05-29
+
+[Documentación] lasts 2 days
+[Documentación] starts at 2023-05-29
+[Documentación] ends at 2023-05-30
+
+[Cierre] lasts 2 days
+[Cierre] starts at 2023-05-30
+[Cierre] ends at 2023-05-31
+
+@endgantt

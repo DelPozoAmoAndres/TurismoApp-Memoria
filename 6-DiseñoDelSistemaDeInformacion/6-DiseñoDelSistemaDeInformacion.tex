@@ -1,0 +1,88 @@
+\chapter{Diseño del sistema de información}
+\section{Diseño de casos de uso reales}
+Esta sección presenta el diseño de los casos de uso más relevantes para el sistema. A continuación, se muestran diagramas de secuencia que ilustran las interacciones entre el usuario y los distintos componentes del sistema.
+\subsection{Caso de uso: Crear cuenta}
+Este caso de uso abarca todos los pasos necesarios, desde la entrada de datos por parte del usuario hasta la confirmación de la creación de la cuenta.
+\\[1ex]A continuación, se detalla el flujo de interacción entre los diferentes actores y componentes del sistema mediante un diagrama de secuencia.
+\input{6-DiseñoDelSistemaDeInformacion/CasosDeUso/CrearCuenta/crear-cuenta.tex}
+\subsection{Caso de uso: Inicio de sesión}
+Este caso de uso detalla las interacciones necesarias entre el usuario y los componentes del sistema para autenticar al usuario de manera segura y eficiente.
+\\[1ex]A continuación, se presenta el diagrama de secuencia que describe estas interacciones.
+\input{6-DiseñoDelSistemaDeInformacion/CasosDeUso/InicioDeSesion/inicio-de-sesion.tex}
+\subsection{Caso de uso: Buscar actividades}
+Este caso de uso describe las interacciones necesarias para que el usuario pueda buscar actividades en la aplicación.
+\\[1ex]A continuación, se presenta el diagrama de secuencia que describe estas interacciones.
+\input{6-DiseñoDelSistemaDeInformacion/CasosDeUso/BuscarActividades/buscar-actividades.tex}
+\subsection{Caso de uso: Crear una reserva}
+Este caso de uso muestra las interacciones necesarias para que el usuario pueda realizar una reserva en la aplicación.
+\\[1ex]A continuación, se presenta el diagrama de secuencia que describe estas interacciones.
+\input{6-DiseñoDelSistemaDeInformacion/CasosDeUso/CrearReserva/crear-reserva.tex}
+% \subsubsection{Diagrama de estados}
+% \input{6-DiseñoDelSistemaDeInformacion/CasosDeUso/CrearReserva/estados-reserva.tex}
+\section{Diseño de clases}
+\subsection{Diagrama de clases}
+\input{6-DiseñoDelSistemaDeInformacion/diagrama-de-clases.tex}
+\section{Diseño de la arquitectura de módulos del sistema}
+\subsection{Diseño de módulos del sistema}
+\subsubsection{Módulo del cliente}
+\input{6-DiseñoDelSistemaDeInformacion/Modulos/cliente.tex}
+\subsubsection{Módulo del servidor}
+\input{6-DiseñoDelSistemaDeInformacion/Modulos/servidor.tex}
+\subsection{Diseño de comunicaciones entre módulos}
+\subsubsection{Diagrama de despliegue}
+\input{6-DiseñoDelSistemaDeInformacion/Modulos/comunicaciones.tex}
+
+\section{Revisión de la interfaz de usuario}
+\subsubsection{Inicio}
+La vista “Inicio” será aquella que se vea nada más acceder a la aplicación. En ella se pondrá observar la lista de actividades más populares así como un botón para poder ir directamente a la búsqueda de actividades.
+\input{6-DiseñoDelSistemaDeInformacion/RevisionInterfaces/Inicio/inicio}
+\subsubsection{Buscar actividades}
+La vista “Buscar actividades” será aquella vista que se enseñará cuando el usuario quiera hacer una búsqueda de las actividades. En esta búsqueda el usuario podrá aplicar filtros y ordenar los resultados según el criterio que más le convenga.
+\input{6-DiseñoDelSistemaDeInformacion/RevisionInterfaces/BuscarActividades/buscarActividades}
+\subsubsection{Detalles de actividad}
+La vista “Detalles de actividad” será aquella vista que se enseñará cuando el usuario quiera ver la información asociada a la actividad. En esta vista el usuario también podrá ver las valoraciones y la disponibilidad en caso de que la actividad tenga eventos con plazas disponibles.
+\input{6-DiseñoDelSistemaDeInformacion/RevisionInterfaces/Detalles de actividad/detallesDeActividad}
+\subsubsection{Realizar reserva}
+La vista “Realizar reserva” será aquella vista que se enseñará cuando el usuario quiera empiece el proceso de compra. En esta vista el usuario pasará por distintos pasos donde deberá introducir datos personales y datos bancarios para realizar la reserva.
+\input{6-DiseñoDelSistemaDeInformacion/RevisionInterfaces/Reservar/reservar}
+\subsubsection{Lista de reservas}
+En esta vista “Lista de reservas” el usuario podrá ver todas las reservas realizadas agrupadas por rangos de fechas próximas.
+\input{6-DiseñoDelSistemaDeInformacion/RevisionInterfaces/Lista de reservas/listaDeReservas}
+\subsubsection*{Gestión de reserva}
+En esta vista “Gestión de reserva” el usuario podrá ver la información asociada a la reserva, añadir una reseña si ha completado la reserva, así como cancelarla si lo desea.
+\input{6-DiseñoDelSistemaDeInformacion/RevisionInterfaces/Detalles de reserva/detalles}
+\subsubsection{Perfil}
+En esta vista “Perfil” el usuario podrá ver todos sus datos personales, asi como gestionar su cuenta, ya sea para cambiar la contraseña o para cancelar la cuenta.
+\input{6-DiseñoDelSistemaDeInformacion/RevisionInterfaces/Perfil/perfil}
+\subsubsection{Dashboard}
+En esta vista “Dashboard” el usuario registrado como administrador podrá ver los datos estadísticos de la aplicación, así como gestionar las actividades y los usuarios.
+\input{6-DiseñoDelSistemaDeInformacion/RevisionInterfaces/Dashboard/dashboard}
+\subsubsection{Eventos próximos}
+En esta vista “Eventos próximos” el usuario registrado como guía podrá ver los eventos que tiene próximamente planificados, así como información de contacto de los turistas que han reservado.
+\input{6-DiseñoDelSistemaDeInformacion/RevisionInterfaces/EventosProximos/eventosProximos}
+
+\section{Diseño físico de la base de datos}
+\subsection{Descripción del SGBD Usado}
+MongoDB \cite{} ha sido seleccionada como base de datos no relacional por sus características como base de datos NoSQL orientada a documentos. Esta elección se debe a su notable flexibilidad y su capacidad para gestionar grandes volúmenes de datos de manera eficiente, además de ofrecer una escalabilidad horizontal significativa.
+\\[1ex]
+Para gestionar las comunicaciones con el servidor, se ha implementado el Object-Relational Mapping (ORM) de Mongoose [29]. Este ORM permite tratar la información utilizando esquemas, lo cual proporciona una solución clara y directa. También facilita la administración de datos al ofrecer una amplia interfaz para realizar operaciones CRUD, y su integración con Node.js ha sido clave para considerarlo la opción más adecuada para la gestión de la base de datos.
+\\[1ex]
+\subsection{Integración del SGBD en nuestro sistema}
+Dentro de este sistema, MongoDB se encuentra en el lado del servidor, conectada a la API REST mediante Mongoose como intermediario. La estructura de la base de datos se define utilizando esquemas en Mongoose, los cuales modelan y gestionan las relaciones entre los datos. Los modelos actúan como constructores para facilitar la interacción con la base de datos.
+\\[1ex]
+\subsection{Colecciones de la base de datos}
+A continuación, se describen las distintas colecciones que conforman la base de datos no relacional empleada por el sistema. La estructura de la base de datos en MongoDB está principalmente compuesta por las siguientes colecciones:
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\linewidth]{6-DiseñoDelSistemaDeInformacion/SGBD/colecciones.png}
+	\caption{Colecciones de la base de datos}
+\end{figure}
+Para comprender este diagrama, es importante explicar ciertos aspectos relevantes. Los atributos que tienen una “NN” a su derecha indican que no pueden estar vacíos, es decir, son obligatorios. Asimismo, los atributos que aparecen con “[]” representan arrays del tipo especificado y aquellos que muestran “\{\}” indican que son objetos que contienen más atributos en su interior, los cuales se detallan a su derecha.
+
+\section{Especificación técnica del plan de pruebas}
+\subsection{Pruebas unitarias}
+\input{6-DiseñoDelSistemaDeInformacion/Pruebas/pruebas-unitarias.tex}
+\subsection{Pruebas de integración}
+\input{6-DiseñoDelSistemaDeInformacion/Pruebas/pruebas-integracion.tex}
+\subsection{Pruebas de Usabilidad}
+\input{6-DiseñoDelSistemaDeInformacion/Pruebas/pruebas-usabilidad.tex}

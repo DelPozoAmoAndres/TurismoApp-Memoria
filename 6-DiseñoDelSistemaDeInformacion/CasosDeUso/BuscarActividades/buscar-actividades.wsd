@@ -1,0 +1,72 @@
+@startuml
+title Búsqueda de Actividades
+
+actor Usuario
+entity “Cliente” as Client
+entity “ActivityController” as Controller
+entity “ActivityService” as Service
+database “Base de Datos” as DB
+
+
+Usuario -> Client : Accede a la vista de búsqueda
+activate Client
+Client -> Controller : GET /activity/list
+activate Controller
+Controller -> Service : getAllActivities()
+activate Service
+Service -> DB : findAllActivities()
+activate DB
+DB --> Service : Devuelve las actividades con eventos
+deactivate DB
+Service --> Controller : Devuelve las actividades con eventos
+deactivate Service
+Controller --> Client : Devuelve las actividades con eventos
+deactivate Controller
+Client --> Usuario : Visualización de resultados
+deactivate Client
+
+loop 
+    opt 
+    Usuario -> Client : Ingresar string de búsqueda
+    activate Client
+    ...3 segundos más tarde...
+    Client -> Controller : GET /activity/list
+    activate Controller
+    Controller -> Service : getAllActivities(texto)
+    activate Service
+    Service -> DB : findActivitiesFiltered(texto)
+    activate DB
+    DB -> DB : applyTextFilter(texto)
+    DB --> Service : Devuelve las actividades filtradas con eventos
+    deactivate DB
+    Service --> Controller : Devuelve las actividades filtradas con eventos
+    deactivate Service
+    Controller --> Client : Devuelve las actividades filtradas con eventos
+    deactivate Controller
+    Client --> Usuario : Visualización de resultados
+    deactivate Client
+  end
+
+  opt
+    Usuario -> Client : Selecciona filtros
+    activate Client
+    Usuario -> Client : Aplica filtros
+    Client -> Controller : GET /activity/list
+    activate Controller
+    Controller -> Service : getAllActivities(filtros)
+    activate Service
+    Service -> DB : findActivitiesFiltered(filtros)
+    activate DB
+    DB -> DB : applyFilters(filtros)
+    DB --> Service : Devuelve las actividades filtradas con eventos
+    deactivate DB
+    Service --> Controller : Devuelve las actividades filtradas con eventos
+    deactivate Service
+    Controller --> Client : Devuelve las actividades filtradas con eventos
+    deactivate Controller
+    Client --> Usuario : Visualización de resultados
+    deactivate Client
+  end
+end
+
+@enduml

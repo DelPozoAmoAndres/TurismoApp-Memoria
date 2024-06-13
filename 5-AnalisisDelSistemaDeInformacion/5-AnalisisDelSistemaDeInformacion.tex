@@ -1,0 +1,260 @@
+\chapter{Análisis del Sistema de Información}
+\section{Determinación del Alcance del Sistema}
+El sistema consistirá en una aplicación móvil y web que brindará una amplia selección de tours y actividades para el disfrute de los turistas en la región de Asturias. Los usuarios tendrán la capacidad de buscar y reservar actividades, así como de gestionar sus reservas previamente realizadas.\\[1ex]
+Además, el sistema facilitará que los usuarios valoren el servicio recibido y dejen reseñas. Por otro lado, la aplicación ofrecerá a la empresa de turismo una herramienta de administración para agregar y gestionar sus actividades y usuarios\\[1ex]
+El alcance del sistema estará limitado a las funcionalidades mencionadas. No se contempla la inclusión de características adicionales, como la reserva de alojamiento o la compra de billetes de avión, dado que estas están fuera del ámbito del sistema y su integración requeriría de complejas conexiones con otros sistemas.
+\section{Establecimiento de Requisitos}
+\subsection{Obtención de los Requisitos del Sistema}
+\subsubsection{Requisitos funcionales}
+\paragraph{Registro de usuario}
+\input{5-AnalisisDelSistemaDeInformacion/Requisitos/RegistroDeUsuario}
+\paragraph{Inicio de sesión}
+\input{5-AnalisisDelSistemaDeInformacion/Requisitos/InicioDeSesion}
+\paragraph{Perfil de usuario}
+\input{5-AnalisisDelSistemaDeInformacion/Requisitos/PerfilDeUsuario}
+\paragraph{Listado de actividades}
+\input{5-AnalisisDelSistemaDeInformacion/Requisitos/ListadoDeActividades}
+\paragraph{Usuario administrador}
+\input{5-AnalisisDelSistemaDeInformacion/Requisitos/UsuarioAdministrador}
+\paragraph{Usuario guía}
+\input{5-AnalisisDelSistemaDeInformacion/Requisitos/UsuarioGuia}
+\paragraph{Usuario turista}
+\input{5-AnalisisDelSistemaDeInformacion/Requisitos/UsuarioTurista}
+\subsubsection{Requisitos no funcionales}
+\input{5-AnalisisDelSistemaDeInformacion/Requisitos/NoFuncionales}
+\subsection{Identificación de Actores del Sistema}
+La identificación de los actores del sistema es fundamental para asegurar una comprensión clara de quiénes interactuarán con la aplicación y de qué manera.
+\\[1ex]
+A continuación, se presenta una descripción detallada de los distintos tipos de actores identificados para este proyecto, junto con sus roles y características:
+\begin{itemize}
+	\item \textbf{Usuario base} – Cualquier usuario que utilice la aplicación, independientemente de si está registrado o no.
+	\item \textbf{Usuario no identificado} – Cualquier usuario que no haya iniciado sesión en la aplicación.
+	\item \textbf{Usuario registrado} – Cualquier usuario que haya iniciado sesión en la aplicación.
+	\item \textbf{Usuario registrado con rol de administrador} - Usuario que posee privilegios de administrador, permitiéndole gestionar y configurar diversos aspectos del sistema.
+	\item \textbf{Usuario registrado con rol de guía} - Usuario que utiliza la aplicación para planificar cuales serán las actividades que realizará como guía.
+	\item \textbf{Usuario registrado con rol de turista} - Usuario que utiliza la aplicación para buscar y reservar actividades turísticas.
+\end{itemize}
+\subsection{Especificación de los casos de uso}
+En esta sección, se presentan los diagramas de casos de uso correspondientes a los distintos tipos de usuarios identificados previamente. Cada diagrama ilustra las principales acciones que pueden realizar los usuarios, proporcionando una visión detallada de sus interacciones con la aplicación.
+\subsubsection{Usuario base}
+\input{5-AnalisisDelSistemaDeInformacion/Casos de uso/usuarioBase/usuarioBase}
+\subsubsection{Usuario no identificado}
+\input{5-AnalisisDelSistemaDeInformacion/Casos de uso/usuarioNoIdentificado/usuarioNoIdentificado}
+\subsubsection{Usuario registrado}
+\input{5-AnalisisDelSistemaDeInformacion/Casos de uso/usuarioRegistrado/usuarioRegistrado}
+\subsubsection{Usuario registrado con rol de administrador}
+\input{5-AnalisisDelSistemaDeInformacion/Casos de uso/usuarioAdministrador/usuarioAdministrador}
+\subsubsection{Usuario registrado con rol de guía}
+\input{5-AnalisisDelSistemaDeInformacion/Casos de uso/usuarioGuia/usuarioGuia}
+\subsubsection{Usuario registrado con rol de turista}
+\input{5-AnalisisDelSistemaDeInformacion/Casos de uso/usuarioTurista/usuarioTurista}
+\section{Identificación de Subsistemas}
+\subsection{Descripción de los subsistemas}
+\subsubsection{Subsistema de gestión de usuarios}
+Este subsistema se encarga de todas las operaciones relacionadas con los usuarios de la aplicación. Permite al administrador realizar funciones como la creación, edición, eliminación y listado de usuarios. Además, cualquier usuario puede registrarse, iniciar y cerrar sesión, así como editar su propio perfil.
+\subsubsection{Subsistema de gestión de actividades}
+Responsable de las operaciones vinculadas a las actividades, este subsistema permite al administrador crear, editar, listar y eliminar actividades. Los usuarios pueden acceder a la información relacionada con cada actividad, incluyendo valoraciones y eventos.
+\subsubsection{Subsistema de gestión de reservas}
+Este subsistema maneja todas las operaciones relacionadas con las reservas. Los usuarios registrados pueden crear, modificar, cancelar y listar sus reservas. El administrador tiene la capacidad de listar y editar las reservas realizadas por los usuarios.
+\subsection*{Descripción de los interfaces entre subsistemas}
+\input{5-AnalisisDelSistemaDeInformacion/diagrama}
+El subsistema de gestión de usuarios interactúa con el subsistema de reservas para obtener las reservas asociadas a un usuario. A su vez, el subsistema de reservas se comunica con el subsistema de usuarios para crear una reserva vinculada a un usuario específico. Este proceso también implica al subsistema de actividades, que recibe información del subsistema de reservas para asociar la actividad que el usuario desea reservar. Finalmente, el subsistema de actividades llama al subsistema de usuarios para asignar un guía a las actividades programadas.
+\section{Análisis de los casos de uso}
+\subsection{Buscar actividades}
+El caso de uso “Buscar actividades” describe cómo los usuarios interactúan con la aplicación para buscar actividades basadas en diferentes criterios.
+\input{5-AnalisisDelSistemaDeInformacion/AnalisisCasosDeUso/BuscarActividades}
+\subsection{Visualizar información de las actividades}
+El caso de uso “Visualizar información de las actividades” describe cómo los usuarios pueden acceder a detalles específicos sobre una actividad seleccionada.
+\input{5-AnalisisDelSistemaDeInformacion/AnalisisCasosDeUso/VisualizarInformacionActividad}
+\subsection{Cambiar idioma}
+El caso de uso “Cambiar idioma” permite a los usuarios seleccionar el idioma en el que prefieren visualizar la aplicación.
+\input{5-AnalisisDelSistemaDeInformacion/AnalisisCasosDeUso/CambiarIdioma}
+\subsection{Cambiar tema}
+El caso de uso “Cambiar tema” permite a los usuarios cambiar la apariencia de la aplicación seleccionando diferentes temas.
+\input{5-AnalisisDelSistemaDeInformacion/AnalisisCasosDeUso/CambiarTema}
+\subsection{Visualizar datos de contacto}
+El caso de uso “Visualizar datos de contacto” permite a los usuarios acceder a la información de contacto almacenada en el sistema.
+\input{5-AnalisisDelSistemaDeInformacion/AnalisisCasosDeUso/VisualizarDatosDeContacto}
+\subsection{Crear cuenta}
+El caso de uso “Crear cuenta” describe el proceso mediante el cual un nuevo usuario puede registrarse en el sistema
+\input{5-AnalisisDelSistemaDeInformacion/AnalisisCasosDeUso/CrearCuenta}
+\subsection{Iniciar sesión}
+El caso de uso “Iniciar sesión” permite a los usuarios registrados acceder a sus cuentas en el sistema.
+\input{5-AnalisisDelSistemaDeInformacion/AnalisisCasosDeUso/IniciarSesion}
+\subsection{Cerrar sesión}
+El caso de uso “Cerrar sesión” describe el proceso mediante el cual un usuario puede salir de su cuenta en el sistema de manera segura.
+\input{5-AnalisisDelSistemaDeInformacion/AnalisisCasosDeUso/CerrarSesion}
+\subsection{Visualizar perfil}
+El caso de uso “Visualizar perfil” permite a los usuarios acceder y ver la información de su perfil personal.
+\input{5-AnalisisDelSistemaDeInformacion/AnalisisCasosDeUso/VisualizarPerfil}
+\subsection{Modificar perfil}
+El caso de uso “Modificar perfil” permite a los usuarios editar y actualizar la información de su perfil personal.
+\input{5-AnalisisDelSistemaDeInformacion/AnalisisCasosDeUso/ModificarPerfil}
+\subsection{Eliminar cuenta}
+El caso de uso “Eliminar cuenta” describe el proceso mediante el cual un usuario puede eliminar su cuenta del sistema.
+\input{5-AnalisisDelSistemaDeInformacion/AnalisisCasosDeUso/EliminarCuenta}
+\subsection{Añadir una actividad}
+El caso de uso “Añadir una actividad” permite a los administradores del sistema agregar nuevas actividades al sistema.
+\input{5-AnalisisDelSistemaDeInformacion/AnalisisCasosDeUso/AnadirActividad}
+\subsection{Editar una actividad}
+El caso de uso “Editar una actividad” describe cómo los administradores pueden modificar la información de las actividades existentes en el sistema.
+\input{5-AnalisisDelSistemaDeInformacion/AnalisisCasosDeUso/EditarActividad}
+\subsection{Eliminar una actividad}
+El caso de uso “Eliminar una actividad” permite a los administradores eliminar actividades del sistema.
+\input{5-AnalisisDelSistemaDeInformacion/AnalisisCasosDeUso/EliminarActividad}
+\subsection{Dar de alta un usuario}
+El caso de uso “Dar de alta un usuario” permite a los administradores registrar nuevos usuarios en el sistema.
+\input{5-AnalisisDelSistemaDeInformacion/AnalisisCasosDeUso/DarDeAltaUsuario}
+\subsection{Buscar usuarios}
+El caso de uso “Buscar usuarios” permite a los administradores encontrar usuarios específicos en el sistema utilizando diferentes criterios de búsqueda.
+\input{5-AnalisisDelSistemaDeInformacion/AnalisisCasosDeUso/BuscarUsuario}
+\subsection{Visualizar información de un usuario}
+l caso de uso “Visualizar información de un usuario” permite a los administradores acceder a los detalles específicos de un usuario registrado.
+\input{5-AnalisisDelSistemaDeInformacion/AnalisisCasosDeUso/VisualizarInformacionDeUsuario}
+\subsection{Modificar un usuario}
+El caso de uso “Modificar un usuario” permite a los administradores editar y actualizar la información de los usuarios existentes en el sistema.
+\input{5-AnalisisDelSistemaDeInformacion/AnalisisCasosDeUso/ModificarUsuario}
+\subsection{Eliminar un usuario}
+El caso de uso “Eliminar un usuario” permite a los administradores eliminar a un usuario del sistema.
+\input{5-AnalisisDelSistemaDeInformacion/AnalisisCasosDeUso/EliminarUsuario}
+\subsection{Añadir un evento}
+El caso de uso “Añadir un evento” permite a los administradores crear nuevos eventos en el sistema.
+\input{5-AnalisisDelSistemaDeInformacion/AnalisisCasosDeUso/AnadirEvento}
+\subsection{Editar un evento}
+El caso de uso “Editar un evento” permite a los administradores modificar los detalles de eventos existentes en el sistema.
+\input{5-AnalisisDelSistemaDeInformacion/AnalisisCasosDeUso/EditarEvento}
+\subsection{Cancelar un evento}
+El caso de uso “Cancelar un evento” permite a los administradores eliminar eventos planificados del sistema.
+\input{5-AnalisisDelSistemaDeInformacion/AnalisisCasosDeUso/CancelarEvento}
+\subsection{Visualizar datos estadísticos}
+El caso de uso “Visualizar datos estadísticos” permite a los administradores acceder a estadísticas sobre reservas y usuarios.
+\input{5-AnalisisDelSistemaDeInformacion/AnalisisCasosDeUso/VisualizarDatosEstadisticos}
+\subsection{Ver eventos próximos}
+El caso de uso “Ver eventos próximos” permite a los guías visualizar los eventos que tienen planificados.
+\input{5-AnalisisDelSistemaDeInformacion/AnalisisCasosDeUso/VerEventosProximos}
+\subsection{Realizar una reserva}
+El caso de uso “Realizar una reserva” permite a los turistas reservar plazas en actividades disponibles.
+\input{5-AnalisisDelSistemaDeInformacion/AnalisisCasosDeUso/RealizarReserva}
+\subsection{Cancelar una reserva}
+El caso de uso “Cancelar una reserva” permite a los usuarios cancelar una reserva activa que aún no ha comenzado.
+\input{5-AnalisisDelSistemaDeInformacion/AnalisisCasosDeUso/CancelarReserva}
+\subsection{Publicar una valoración}
+El caso de uso “Publicar una valoración” permite a los usuarios que han participado en una actividad dejar una valoración.
+\input{5-AnalisisDelSistemaDeInformacion/AnalisisCasosDeUso/PublicarValoracion}
+\subsection{Borrar una valoración}
+El caso de uso “Borrar una valoración” permite a los usuarios eliminar una valoración previamente publicada
+\input{5-AnalisisDelSistemaDeInformacion/AnalisisCasosDeUso/BorrarValoracion}
+\subsection{Listar las reservas realizadas}
+El caso de uso “Listar las reservas realizadas” permite a los usuarios ver un listado de todas las reservas que han realizado.
+\input{5-AnalisisDelSistemaDeInformacion/AnalisisCasosDeUso/ListaReservasRealizadas}
+\subsection{Visualizar la información de una reserva}
+El caso de uso “Visualizar la información de una reserva” permite a los usuarios acceder a los detalles específicos de una reserva realizada.
+\input{5-AnalisisDelSistemaDeInformacion/AnalisisCasosDeUso/VisualizarInformacionReserva}
+\section{Análisis de clases}
+El siguiente diagrama de clases muestra las principales entidades involucradas, incluyendo usuarios, eventos, actividades, reservas y reseñas, así como los estados y roles asociados.
+\input{5-AnalisisDelSistemaDeInformacion/Clases/diagrama}
+\subsection{Descripción de las clases}
+A continuación, se detallan las clases correspondientes a los subsistemas de gestión de usuarios, actividades y reservas, cada una con una breve descripción, sus atributos y métodos propuestos.
+\subsubsection{Subsistema de gestión de usuarios}
+\input{5-AnalisisDelSistemaDeInformacion/Clases/Usuarios/Usuarios}
+\subsubsection{Subsistema de gestión de actividades}
+\input{5-AnalisisDelSistemaDeInformacion/Clases/Actividades/Actividades}
+\subsubsection{Subsistema de gestión de reservas}
+\input{5-AnalisisDelSistemaDeInformacion/Clases/Reservas/Reservas}
+\section{Definición de interfaces de usuario}
+\subsection{Descripción de la interfaz }
+En este apartado se mostrarán los bocetos que se han realizado para la interfaz de usuario de este proyecto. Las vistas sufren ligeras modificaciones dependiendo del rol que tenga el usuario, si está registrado o no, así como el dispositivo que se esté usando. Se han identificado las siguientes ventanas.
+\subsubsection{Inicio}
+La vista “Inicio” será aquella que se vea nada más acceder a la aplicación. En ella se pondrá observar la lista de actividades más populares así como un botón para poder ir directamente a la búsqueda de actividades.
+\input{5-AnalisisDelSistemaDeInformacion/InterfacesDeUsuario/Inicio/inicio}
+\subsubsection{Inicio de sesión}
+La vista “Inicio de sesión” será aquella vista que se enseñará cuando el usuario quiera identificarse en la aplicación.
+En esta vista el usuario podrá introducir su correo electrónico y contraseña para poder acceder a la aplicación.
+\input{5-AnalisisDelSistemaDeInformacion/InterfacesDeUsuario/InicioDeSesion/inicioDeSesion}
+\subsubsection{Registro}
+La vista “Registro” será aquella vista que se enseñará cuando el usuario quiera registrarse en la aplicación.
+En esta vista el usuario deberá introducir sus datos personales y una contraseña.
+\input{5-AnalisisDelSistemaDeInformacion/InterfacesDeUsuario/Registro/registro}
+\subsubsection{Buscar actividades}
+La vista “Buscar actividades” será aquella vista que se enseñará cuando el usuario quiera hacer una búsqueda de las actividades. En esta búsqueda el usuario podrá aplicar filtros y ordenar los resultados según el criterio que más le convenga.
+\input{5-AnalisisDelSistemaDeInformacion/InterfacesDeUsuario/BuscarActividades/buscarActividades}
+\subsubsection{Detalles de actividad}
+La vista “Detalles de actividad” será aquella vista que se enseñará cuando el usuario quiera ver la información asociada a la actividad. En esta vista el usuario también podrá ver las valoraciones y la disponibilidad en caso de que la actividad tenga eventos con plazas disponibles.
+\input{5-AnalisisDelSistemaDeInformacion/InterfacesDeUsuario/Detalles de actividad/detallesDeActividad}
+\subsubsection{Realizar reserva}
+La vista “Realizar reserva” será aquella vista que se enseñará cuando el usuario quiera empiece el proceso de compra. En esta vista el usuario pasará por distintos pasos donde deberá introducir datos personales y datos bancarios para realizar la reserva.
+\input{5-AnalisisDelSistemaDeInformacion/InterfacesDeUsuario/Reservar/reservar}
+\subsubsection{Lista de reservas}
+En esta vista “Lista de reservas” el usuario podrá ver todas las reservas realizadas agrupadas por rangos de fechas próximas.
+\input{5-AnalisisDelSistemaDeInformacion/InterfacesDeUsuario/Lista de reservas/listaDeReservas}
+\subsubsection*{Gestión de reserva}
+En esta vista “Gestión de reserva” el usuario podrá ver la información asociada a la reserva, añadir una reseña si ha completado la reserva, así como cancelarla si lo desea.
+\input{5-AnalisisDelSistemaDeInformacion/InterfacesDeUsuario/Detalles de reserva/detalles}
+\subsubsection{Perfil}
+En esta vista “Perfil” el usuario podrá ver todos sus datos personales, asi como gestionar su cuenta, ya sea para cambiar la contraseña o para cancelar la cuenta.
+\input{5-AnalisisDelSistemaDeInformacion/InterfacesDeUsuario/Perfil/perfil}
+\subsubsection{Dashboard}
+En esta vista “Dashboard” el usuario registrado como administrador podrá ver los datos estadísticos de la aplicación, así como gestionar las actividades y los usuarios.
+\input{5-AnalisisDelSistemaDeInformacion/InterfacesDeUsuario/Dashboard/dashboard}
+\subsubsection{Eventos próximos}
+En esta vista “Eventos próximos” el usuario registrado como guía podrá ver los eventos que tiene próximamente planificados, así como información de contacto de los turistas que han reservado.
+\input{5-AnalisisDelSistemaDeInformacion/InterfacesDeUsuario/EventosProximos/eventosProximos}
+\subsection{Descripción del comportamiento de la interfaz}
+\subsubsection{Diagrama de navegabilidad}
+A continuación se presenta el diagrama de navegabilidad, que ilustra las relaciones y transiciones entre las diferentes páginas y componentes de la interfaz
+\input{5-AnalisisDelSistemaDeInformacion/Navegabilidad/diagrama.tex}
+\section{Especificación del plan de pruebas}
+En esta sección se describe el plan de pruebas que se llevará a cabo para garantizar la calidad y funcionalidad del sistema. Se realizarán pruebas unitarias, pruebas de integración y pruebas de usabilidad.
+\subsection{Pruebas unitarias}
+Las pruebas unitarias se centran en validar el correcto funcionamiento de cada componente individual del sistema. Para ello:
+\begin{itemize}
+	\item Se definirán casos de prueba específicos para cada función o método.
+	\item Cada caso de prueba verificará que los resultados obtenidos sean los esperados bajo diferentes condiciones.
+	\item Se empleará el framework de pruebas unitarias Jest, conocido por su eficacia en la detección de errores en etapas tempranas del desarrollo.
+	\item Estas pruebas se ejecutarán de manera automatizada para asegurar la repetibilidad y consistencia de los resultados.
+\end{itemize}
+\subsection{Pruebas de integración}
+Para verificar la correcta integración entre los diferentes módulos de la funcionalidad de reservas de actividades, se realizarán pruebas de integración centradas en la creación de reservas, dado que es la funcionalidad principal y la que más relaciones entre módulos presenta.
+Las pruebas se llevarán a cabo en un entorno de pruebas similar al de producción utilizando herramientas de automatización como Cypress.
+Se comprobará la conexión entre el módulo de usuario y el módulo de reservas para asegurar que un usuario autenticado puede crear una reserva;
+la conexión entre el módulo de actividades y el módulo de reservas para verificar que las actividades disponibles se cargan y pueden ser seleccionadas correctamente;
+y la interacción entre el módulo de reservas y la base de datos para garantizar que la información de la reserva se almacena y recupera adecuadamente.
+
+Además se realizarán pruebas manuales para comprobar la correcta visualización de la información de la reserva en la interfaz de usuario y la correcta actualización de la base de datos tras la realización de una reserva.
+\subsection{Pruebas de usabilidad}
+Las pruebas de usabilidad están diseñadas para evaluar la experiencia del usuario al interactuar con el sistema. Estas pruebas se centrarán en la facilidad de uso, la eficiencia y la satisfacción del usuario. El enfoque principal será la realización de un cuestionario estructurado después de que los participantes completen una serie de tareas específicas en la aplicación. A continuación se detalla el plan para estas pruebas:
+\\[1ex]
+\textbf{Selección de Participantes:}
+\\[1ex]
+Se seleccionarán de 3 a 5 personas que representen el público objetivo de la aplicación.
+Los participantes deben tener diferentes niveles de experiencia con aplicaciones similares para obtener una variedad de perspectivas.
+Tareas a Realizar:
+\begin{enumerate}
+	\item Registrarse en la aplicación
+	\item Cerrar sesión
+	\item Iniciar sesión
+	\item Buscar actividades
+	\item Filtrar actividades por texto
+	\item Filtrar actividades por rango/precio/personas
+	\item Borrar filtros de búsqueda
+	\item Ver Detalles de una actividad
+	\item Reservar una actividad
+	\item Cancelar una reserva
+	\item Añadir una valoración
+	\item Editar una valoración
+	\item Eliminar una valoración
+	\item Ver datos personales
+	\item Editar datos personales
+	\item Cambiar la contraseña
+	\item Cambiar el tema de la aplicación
+	\item Cambiar el idioma de la aplicación
+	\item Eliminar la cuenta
+\end{enumerate}
+
+Al ser una aplicación web y móvil, se realizarán pruebas en ambas plataformas para evaluar la consistencia y la usabilidad en diferentes dispositivos.
+A su vez, también se evaluarán tareas de administración para los usuarios con rol de administrador y tareas de guía para los usuarios con rol de guía.
+
+\textbf{Cuestionario de Usabilidad:}
+\\[1ex]
+Después de completar cada tarea, los participantes responderán a preguntas sobre la facilidad de realizar la tarea y cualquier problema que hayan encontrado.
+Se recopilará feedback cualitativo y cuantitativo para evaluar la usabilidad general de la aplicación.

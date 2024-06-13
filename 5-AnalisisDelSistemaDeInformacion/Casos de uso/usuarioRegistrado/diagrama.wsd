@@ -1,0 +1,13 @@
+@startuml
+skin rose
+
+actor “Usuario registrado” as main
+package “Autenticación” {
+  main -left- (Cerrar sesión)
+}
+package “Usuario” {
+  main -up- (Visualizar perfil)
+  main -up- (Modificar perfil)
+  main -up- (Eliminar cuenta)
+}
+@enduml

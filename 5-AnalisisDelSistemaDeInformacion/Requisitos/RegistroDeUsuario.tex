@@ -1,0 +1,50 @@
+\begin{enumitem}[label=\bfseries{RReg \arabic*.},leftmargin=*]
+	\item El sistema permitirá a cualquier usuario registrarse.
+	\begin{enumitem}[label*=\bfseries{\arabic*.}]
+		\item El sistema requerirá que se rellenen los siguientes campos obligatorios.
+		\begin{enumitem}[label*=\bfseries{\arabic*.}]
+			\item Nombre y apellidos del usuario.
+			\begin{enumitem}[label*=\bfseries{\arabic*.}]
+				\item El sistema comprobará que la cadena introducida es mayor o igual que 8.
+			\end{enumitem}
+			\item Dirección de correo electrónico.
+			\begin{enumitem}[label*=\bfseries{\arabic*.}]
+				\item El sistema comprobará que coincide con un patrón de correo electrónico.
+				\item El sistema comprobará que ese correo electrónico no ha sido registrado por otro usuario.
+			\end{enumitem}
+			\item Contraseña.
+			\begin{enumitem}[label*=\bfseries{\arabic*.}]
+				\item El sistema comprobará que la contraseña introducida tiene una longitud mínima de 8 y máxima de 16.
+			\end{enumitem}
+			\item Confirmación de Contraseña.
+			\begin{enumitem}[label*=\bfseries{\arabic*.}]
+				\item El sistema comprobará que la confirmación coincida con la contraseña introducida anteriormente.
+			\end{enumitem}
+		\end{enumitem}
+		\item El sistema tendrá los siguientes campos opcionales.
+		\begin{enumitem}[label*=\bfseries{\arabic*.}]
+			\item País.
+			\item Teléfono.
+			\begin{enumitem}[label*=\bfseries{\arabic*.}]
+				\item El sistema comprobará que el número de teléfono introducido es valido.
+			\end{enumitem}
+			\item Fecha de nacimiento.
+			\begin{enumitem}[label*=\bfseries{\arabic*.}]
+				\item El sistema comprobará que el formato de la fecha de nacimiento es correcto.
+				\item El sistema comprobará que la fecha de nacimiento introducida es posterior al día de hoy
+			\end{enumitem}
+		\end{enumitem}
+		\item Al completar todos los campos obligatorios, el sistema habilitará un botón para confirmar el registro.
+		\begin{enumitem}[label*=\bfseries{\arabic*.}]
+			\item El sistema comprobará que los datos introducidos en los campos están rellenos correctamente.
+			\begin{enumitem}[label*=\bfseries{\arabic*.}]
+				\item El sistema mostrará un mensaje de error si no se cumple alguna de las comprobaciones de los campos.
+				\item En caso de cumplir todas las comprobaciones, el sistema guardará los datos de registro.
+				\begin{enumitem}[label*=\bfseries{\arabic*.}]
+					\item El sistema autenticará al usuario con los datos registrados automáticamente.
+					\item El sistema mostrará la pantalla principal.
+				\end{enumitem}
+			\end{enumitem}
+		\end{enumitem}
+	\end{enumitem}
+\end{enumitem}

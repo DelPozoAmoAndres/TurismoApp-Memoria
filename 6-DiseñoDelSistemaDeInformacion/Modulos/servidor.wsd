@@ -1,0 +1,23 @@
+@startuml
+
+package Servidor {
+  folder Api
+  folder Controladores
+  folder Middlewares
+  folder Modelos
+  folder Rutas
+  folder Servicios
+}
+
+database “MongoDB"
+component Cliente
+
+Cliente <-right-> Api : Comunica
+Api -right-> Rutas : Define 
+Rutas -down-> Middlewares : Aplica 
+Middlewares -left-> Controladores : Delega
+Controladores -down-> Servicios : Utiliza 
+Servicios -right-> Modelos : Interacciona
+Modelos <--> MongoDB : Comunica
+
+@enduml

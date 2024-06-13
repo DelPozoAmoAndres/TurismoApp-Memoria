@@ -1,0 +1,13 @@
+@startgantt
+Project starts 2023-05-01
+saturday are closed
+sunday are closed
+
+[Análisis] starts 2023-06-13 
+[Análisis] ends 2023-06-22
+[Diseño] starts 2023-06-22 
+[Diseño] ends 2023-07-01
+
+2023-05-01 to 2023-06-12 are closed
+
+@endgantt

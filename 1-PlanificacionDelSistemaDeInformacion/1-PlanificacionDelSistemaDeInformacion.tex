@@ -1,0 +1,64 @@
+\chapter{Planificación del Sistema de información (PSI)}
+\section{Inicio del Plan de Sistemas de Información}
+\subsection{Análisis de la Necesidad del PSI}
+La región de Asturias, conocida por su rica historia, paisajes naturales y cultura culinaria, se ha convertido en el destino predilecto para turistas internacionales~\cite{turismo}. Sin embargo, la intensa competencia entre las empresas turísticas locales presenta un desafío para las más pequeñas que buscan destacar.\\[1ex]Para satisfacer las demandas de los turistas actuales y ampliar su alcance, la empresa ha reconocido la necesidad de hacer la transición al ámbito digital. Este movimiento les permitirá crear una experiencia más optimizada para quienes reservan y planifican viajes, además de brindar acceso a una audiencia más amplia. Abrazar la digitalización es una estrategia vital que contribuirá a aumentar su perfil en la industria turística de Asturias y atraer nuevos clientes.
+\subsection{Identificación Alcance del PSI}
+Se reconoce que la empresa no cuenta con un sistema previo para la promoción y gestión de sus servicios turísticos, dependiendo actualmente de métodos tradicionales como la publicidad impresa y el manejo manual de las reservas. Para abordar esta situación, se propone el desarrollo de un sistema que:
+\begin{itemize}
+	\item {\bfseries Digitalice las actividades:} La adopción de prácticas digitales permitirá a la empresa publicitar sus servicios de una manera más ágil y eficiente. Además, los datos estarán actualizados y se reducirán los gastos en impresión.
+	\item {\bfseries Optimice la búsqueda y selección de actividades:} El sistema proveerá una interfaz intuitiva para que los turistas localicen y elijan actividades de acuerdo con sus preferencias, lo que simplificará la planificación de sus viajes y enriquecerá su experiencia.
+	\item {\bfseries Agilice las reservas de actividades:} La reserva de actividades a través del sistema permitirá a los turistas confirmar inmediatamente sus reservas. La posibilidad de cancelar o modificar una reserva con anticipación también mejorará la satisfacción del cliente al ofrecer mayor flexibilidad.
+	      Además, la empresa podrá gestionar de manera más eficiente las reservas y disponibilidad de las actividades.
+\end{itemize}
+\section{Definición y Organización del PSI}
+\subsection{Especificación del Ámbito y Alcance}
+El proyecto se ha dividido en varias fases, cada una con metas bien definidas que son cruciales para cumplir sus objetivos estratégicos. Dentro de cada fase, se han delineado pasos específicos para facilitar el progreso de la digitalización de las actividades y mejorar la experiencia del usuario. Estas fases se ejecutarán de forma secuencial, con una evaluación del progreso realizado hacia el logro de los objetivos antes de pasar a la siguiente fase.
+\begin{enumerate}[label=\bfseries{Fase \arabic*.},leftmargin=*]
+	\item {\bfseries Gestión de usuarios} \\[1ex]En esta fase de desarrollo, nos enfocaremos en la gestión de usuarios. Para ello, se implementará un proceso de registro e inicio de sesión para que los usuarios puedan acceder a la aplicación tanto desde su dispositivo móvil como desde la versión web.\\[1ex] El registro será sencillo e intuitivo, y permitirá a los usuarios crear su cuenta de forma rápida y sin complicaciones.
+	      Una vez que los usuarios hayan registrado su cuenta, podrán iniciar sesión desde cualquier dispositivo, ya sea desde la versión móvil o desde la web, lo que les permitirá acceder a todas las funcionalidades de la aplicación. Además, se implementarán medidas de seguridad para proteger la información de los usuarios, como la encriptación de la contraseña.\\[1ex]
+	      {\bfseries Objetivos:}
+	      \begin{itemize}
+		      \item Permitir a cualquiera visualizar la aplicación desde la web o desde la aplicación móvil (IOS y Android)
+		      \item Permitir a cualquiera registrarse en la aplicación.
+		      \item Permitir a cualquier usuario, que cuente con cuenta registrada, iniciar sesión en la aplicación.
+		      \item Permitir al personal de administración gestionar a los usuarios registrados.
+		      \item Permitir al personal de administración dar de alta nuevas cuentas.
+	      \end{itemize}
+	\item {\bfseries Gestión de actividades}\\[1ex]En esta fase del proyecto nos enfocaremos en la digitalización de la información de las actividades turísticas que ofrece la empresa. Esto permitirá que los usuarios puedan acceder a la información actualizada en tiempo real sobre las actividades, a través de la aplicación tanto móvil como web.\\[1ex]Para ello, se desarrollará un sistema de gestión de información de actividades que permitirá al personal de administración almacenar y actualizar la información de cada actividad turística. Esta información incluirá descripciones, requisitos y cualquier otra información relevante para los usuarios. De igual manera se les permitirá añadir eventos a cada actividad indicando el día, el número de plazas disponibles y el idioma en el que se va a desarrollar la actividad.\\[1ex]Además, se asignará a cada evento un usuario con rol guía, el cual se encargará de guiar a los usuarios durante la actividad y responder a cualquier duda o consulta que puedan tener.\\[1ex]
+	      {\bfseries Objetivos:}
+	      \begin{itemize}
+		      \item Permitir al personal de administración incluir nuevas actividades.
+		      \item Permitir al personal de administración añadir eventos de actividades existentes.
+		      \item Permitir al personal de administración modificar o eliminar eventos existentes.
+		      \item Permitir al personal de administración modificar y/o actualizar la información de las actividades.
+		      \item Permitir al personal de administración eliminar o cerrar temporalmente actividades.
+	      \end{itemize}
+	\item {\bfseries Listado de actividades}\\[1ex] En esta fase del proyecto, nos enfocaremos en la presentación de un listado de actividades turísticas disponibles en la aplicación. Esto permitirá a los usuarios buscar y filtrar las actividades añadidas por el personal de administración para encontrar las que más les interesen.\\[1ex]Para ello, se desarrollará un sistema de presentación de actividades que permitirá a los usuarios navegar por una lista completa de las actividades disponibles. Además, se permitirá a los usuarios filtrar las actividades según su duración, precio y otros criterios relevantes para cada usuario.\\[1ex]
+	      {\bfseries Objetivos:}
+	      \begin{itemize}
+		      \item Permitir que cualquier usuario pueda hacer una búsqueda de 	actividades aplicando o no filtros.
+		      \item Permitir que la búsqueda de actividades sea por nombre, lugar…
+		      \item Permitir que el filtrado de actividades sea por duración, tipo, precio…
+		      \item Permitir listar las actividades con y sin filtros.
+		      \item Permitir entrar al detalle de cada actividad, mostrando toda su información.
+	      \end{itemize}
+	\item {\bfseries Reservas de actividades}\\[1ex]En esta fase del proyecto, nos enfocaremos en la implementación de un sistema de reservas para las actividades turísticas ofrecidas a través de la aplicación. Una vez que las actividades están listadas, los turistas registrados podrán realizar reservas online para cada una de ellas.\\[1ex]El sistema de reservas permitirá a los usuarios seleccionar la fecha y hora de la actividad, el número de personas que asistirán y el idioma en el que quieren la actividad. Además, en caso de que la reserva tenga algún coste, se le pasará a una pasarela de pago para realizar el pago correspondiente antes de confirmar la reserva.\\[1ex]Una vez confirmada la reserva, esta se registrará en tiempo real y el turista podrá cancelar o modificar su reserva hasta 24 horas antes de la fecha de la actividad. En caso de que la reserva tenga algún costo y se cancele dentro del plazo estipulado, se le reembolsará el importe correspondiente al turista.\\[1ex]
+	      {\bfseries Objetivos:}
+	      \begin{itemize}
+		      \item Permitir a los usuarios registrados efectuar reservas.
+		      \item Integrar el sistema de reservas con el listado de actividades.
+		      \item Integrar la funcionalidad de pago para confirmar la reserva, en caso de tener algún coste.
+		      \item Permitir a los turistas modificar o cancelar su reserva hasta 24 horas antes de empezar la actividad.
+	      \end{itemize}
+	\item {\bfseries Guía}\\[1ex]En esta fase del proyecto, nos enfocaremos en la creación de un apartado para los guías turísticos en la aplicación. Este apartado les permitirá listar todas las actividades en las que se les ha asignado como guía, facilitando la organización y gestión de sus actividades.\\[1ex]A través de esta sección, los guías podrán acceder a la información detallada de cada actividad, incluyendo el lugar, la hora y la descripción. Y también podrán ver el número de turistas que han reservado la actividad.\\[1ex]
+	      {\bfseries Objetivos:}
+	      \begin{itemize}
+		      \item Permitir al guía listar sus actividades asignadas.
+		      \item Permitir al guía ver los usuarios que asistirán a las actividades.
+		      \item Permitir ver toda la información de cada actividad.
+	      \end{itemize}
+\end{enumerate}
+\subsection{Organización del PSI}En este apartado se detallará cómo se han estructurado los distintos equipos encargados de llevar a cabo el proyecto, así como la definición de los roles y responsabilidades de cada miembro.\\[1ex]
+\input{1-PlanificacionDelSistemaDeInformacion/Table-OrganizacionDeLosEquiposDeTrabajo}
+\section{Estudio de la información Relevante}
+\subsection{Selección y Análisis de Antecedentes}

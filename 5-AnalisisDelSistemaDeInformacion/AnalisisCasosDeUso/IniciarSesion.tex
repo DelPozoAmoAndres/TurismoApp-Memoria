@@ -1,0 +1,21 @@
+\begin{analisisCasoDeUso}
+	\centering
+	\begin{tabular} { | m{3cm} | p{13cm} | }
+		\hline
+		\multicolumn{2}{ | c | }{\bfseries Iniciar sesión}                                                                       \\ \hline
+		{\bfseries Precondiciones}  & El usuario debe haberse creado una cuenta en el sistema.                                   \\ \hline
+		{\bfseries Postcondiciones} & El usuario queda identificado.                                                             \\ \hline
+		{\bfseries Actores    }     & Iniciado por cualquier usuario sin identificar                                             \\ \hline
+		{\bfseries Descripción}     & {\bfseries 1.} El usuario selecciona en el menú la opción “Área Personal” .                 \\
+		                            & {\bfseries 2.} El sistema muestra la página de inicio de sesión.                           \\
+		                            & {\bfseries 3.} El usuario introduce los datos requeridos.                                  \\
+		                            & {\bfseries 4.} El usuario envía el formulario de registro.                                 \\
+		                            & {\bfseries 5.} El sistema verifica los datos del formulario.                               \\
+		                            & {\bfseries 6.} El usuario queda identificado.                                              \\ \hline
+		{\bfseries Variaciones}     & {\bfseries Escenario alternativo 1:} En caso de que los datos ingresados sean incorrectos. \\
+		                            & {\bfseries 6.} El sistema muestra un mensaje de error.                                     \\ \hline
+		{\bfseries Excepciones}     & Si ocurre un error en el proceso de inicio de sesión, se muestra un mensaje de error.      \\
+		{\bfseries Notas }          &                                                                                            \\ \hline
+	\end{tabular}
+	\caption{Caso de uso - Iniciar sesión}
+\end{analisisCasoDeUso}

@@ -1,0 +1,99 @@
+@startuml
+
+class Activity {
+  - name: string
+  - location: string
+  - duration: number
+  - description: string
+  - state: ActivityState
+  - images: any[]
+  
+  + addEvents(Events[] events) :void
+  + delete() : void
+  + listEvents(Date date):void
+}
+
+enum ActivityState {
+  abierta
+  parada_temporalmente
+  cancelada
+}
+
+class Event {
+  - id: string
+  - seats: number
+  - bookedSeats: number
+  - date: Date
+  - price: number
+  - language: string
+  
+  + cancel() :void
+  + listReservations(PaymentStatus status) :Reservation[]
+}
+
+
+class Review {
+  - score: number
+  - comment: string
+  
+  + publish() :void
+  + delete() :void
+  + edit(string score, string) :void
+}
+
+
+class User {
+  - name: string
+  - email: string
+  - birthday: Date
+  - telephone: Number
+  - country: string
+  - password: string
+  - role: Role
+  
+  + login() :void
+  + register() :void
+  + delete() :void
+  + publishReview(Review review) :void
+  + deleteReview(Review review) :void
+  + payReservation(Reservation reservation) :void
+  + cancelReservation(Reservation Reservation) :void
+  + listEvents(Activity activity) :Event[]
+  + addEvents(Activity activity, Event[] events) :void
+}
+enum Role {
+  admin
+  user
+  worker
+}
+
+class Reservation {
+  - numPersons: number
+  - price: number
+  - name: string
+  - email: string
+  - telephone: number
+  - state: PaymentStatus
+  - paymentId: string
+  
+  + confirm() :void
+  + cancel() :void
+}
+
+enum PaymentStatus {
+  pending
+  success
+  failure
+  canceled
+  pay
+}
+
+
+Activity “1” -up- “0..*” Event : offers >
+User “1” -- “0..*” Review : author >
+Activity “1” -right- “0..*” Review : \t has \t >
+User  “1” -up- “0..*” Reservation : makes >
+User “1” -left- “0..*” Event : \r guides \r >
+User “0..*” -- “0..*” Event : participates  > 
+Reservation “0..*” -- “1” Event : associated with >
+@enduml

@@ -1,0 +1,42 @@
+\subsubsection*{Organizational Breackdown Structure}
+La ``Organizational Breackdown Structure`` (OBS) es una representación jerárquica de la estructura organizativa del proyecto.
+Define los roles y responsabilidades de los miembros del equipo del proyecto y sus relaciones.
+La OBS ayuda a comprender la estructura de informes, los canales de comunicación y la coordinación entre los diferentes interesados del proyecto.
+\\[1ex]
+En la siguiente figura, se representa la OBS utilizando un diagrama de bloques. Cada bloque representa un rol o posición específica dentro del equipo del proyecto. Las lineas indican las relaciones de informe entre los roles.
+
+\begin{figure}[H]
+	\centering
+	\begin{adjustwidth}{-0.55cm}{}
+		\begin{tikzpicture}[
+				scale=0.7, every node/.style={scale=0.7},
+				node distance = 3mm and 0mm,
+				block/.style = {draw, rectangle, minimum height=20mm, text width=30mm, align=center, fill=gray!25},
+				line/.style = {draw, thick}
+			]
+
+			% Nodos
+			\node [block] (consultor) {Consultor de tecnología};
+			\node [block, right=of consultor] (analista) {Analista};
+			\node [block, right=of analista] (arquitecto) {Arquitecto de software};
+			\node [block, right=of arquitecto] (desarrollador) {Desarrollador Full-Stack};
+			\node [block, right=of desarrollador] (admin) {Administrador de base de datos};
+			\node [block, right=of admin] (disenador) {Diseñador de UX/UI};
+			\node [block, right=of disenador] (devops) {DevOps};
+			\node [block, right=of devops] (tester) {Tester};
+			\node [block, right=of desarrollador, yshift=30mm, xshift=-15mm] (director) {Director de proyecto};
+			% Líneas
+			\draw [line] ([yshift=2.5mm, xshift=16.5mm] desarrollador.north) -- ([yshift=10mm, xshift=16.5mm]desarrollador.north) ;
+			\draw [line] ([yshift=2mm] consultor.north) -- ([yshift=2mm]tester.north) ;
+			\draw [line] ([yshift=0mm] consultor.north) -- ([yshift=2mm]consultor.north) ;
+			\draw [line] ([yshift=0mm] analista.north) -- ([yshift=2mm]analista.north) ;
+			\draw [line] ([yshift=0mm] arquitecto.north) -- ([yshift=2mm]arquitecto.north) ;
+			\draw [line] ([yshift=0mm] desarrollador.north) -- ([yshift=2mm]desarrollador.north) ;
+			\draw [line] ([yshift=0mm] admin.north) -- ([yshift=2mm]admin.north) ;
+			\draw [line] ([yshift=0mm] disenador.north) -- ([yshift=2mm]disenador.north) ;
+			\draw [line] ([yshift=0mm] devops.north) -- ([yshift=2mm]devops.north) ;
+			\draw [line] ([yshift=0mm] tester.north) -- ([yshift=2mm]tester.north) ;
+		\end{tikzpicture}
+	\end{adjustwidth}
+	\caption{Organizational Breackdown Structure (OBS)}
+\end{figure}

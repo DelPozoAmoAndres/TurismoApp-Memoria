@@ -1,0 +1,6 @@
+@startuml
+[Gestión de usuarios] ..> [Gestión de reservas] : <<use>>
+[Gestión de reservas] ..> [Gestión de usuarios] : <<use>>
+[Gestión de reservas] ..> [Gestión de actividades] : <<use>>
+[Gestión de actividades] ..> [Gestión de usuarios] : <<use>>
+@enduml

@@ -1,0 +1,28 @@
+\begin{analisisCasoDeUso}
+	\centering
+	\begin{tabular} { | m{3cm} | p{13cm} | }
+		\hline
+		\multicolumn{2}{ | c | }{\bfseries Buscar actividades}                                                                                                                         \\ \hline
+		{\bfseries Precondiciones}  & No.                                                                                                                                              \\ \hline
+		{\bfseries Postcondiciones} & Se muestra una lista de actividades que coinciden con los criterios de búsqueda.                                                                 \\ \hline
+		{\bfseries Actores    }     & Iniciado por cualquier usuario ya esté identificado o no.                                                                                        \\ \hline
+		{\bfseries Descripción}     & {\bfseries 1.} El usuario accede al apartado de búsqueda de actividades en la aplicación.                                                        \\
+		                            & {\bfseries 2.} El usuario introduce texto en la barra de búsqueda para filtrar actividades por nombre y ubicación.                               \\
+		                            & {\bfseries 3.} El sistema espera a que se deje de escribir para hacer la búsqueda.                                                               \\
+		                            & {\bfseries 4.} El sistema muestra una lista de actividades que coinciden con los criterios de búsqueda aplicados.                                \\
+		                            & {\bfseries 5.} El usuario puede desplazarse por la lista para ver las actividades que cumplen con los criterios de búsqueda especificados.       \\ \hline
+		{\bfseries Variaciones}     & {\bfseries Escenario Alternativo 1:} El usuario realiza una búsqueda sin especificar ningún criterio.                                            \\
+		                            & {\bfseries 1.} El usuario accede al apartado de búsqueda de actividades en la aplicación.                                                        \\
+		                            & {\bfseries 2.} El sistema muestra la lista de actividades más populares.                                                                         \\
+		                            & {\bfseries 3.} Volver al paso 5.                                                                                                                 \\
+		                            & {\bfseries Escenario Alternativo 2:} El usuario realiza una búsqueda utilizando los filtros para refinar la búsqueda según fechas, precios, etc. \\
+		                            & {\bfseries 1.} El usuario accede al apartado de búsqueda de actividades en la aplicación.                                                        \\
+		                            & {\bfseries 2.} El usuario añade filtros de fechas, precios, etc.                                                                                 \\
+		                            & {\bfseries 3.} Volver al paso 4.                                                                                                                 \\
+		                            & {\bfseries Escenario Alternativo 3:} El sistema no encuentra ninguna actividad que coincida con los criterios de búsqueda.                       \\
+		                            & {\bfseries 4.} El sistema muestra un mensaje pidiendo al usuario que cambie los criterios de búsqueda                                            \\ \hline
+		{\bfseries Excepciones}     & Si ocurre un error al acceder a la base de datos, se muestra un mensaje de error.                                                                \\ \hline
+		{\bfseries Notas }          &                                                                                                                                                  \\ \hline
+	\end{tabular}
+	\caption{Caso de uso - Buscar actividades}
+\end{analisisCasoDeUso}

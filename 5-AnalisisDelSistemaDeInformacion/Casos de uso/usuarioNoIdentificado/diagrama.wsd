@@ -1,0 +1,11 @@
+@startuml
+
+skin rose
+
+actor “Usuario no identificado” as main
+package “Autenticación” {
+  main -- (Iniciar sesión)
+  main -- (Crear cuenta)
+}
+
+@enduml

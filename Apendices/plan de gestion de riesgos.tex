@@ -1,0 +1,129 @@
+\section{Metodología Aplicada}
+
+En este proyecto, se aplicará la metodología de Boehm, complementada con la fase de ``Planificación de la Gestión de Riesgos'' del PMBOK.
+
+La metodología consistirá en las siguientes fases:
+
+\subsection{Planificación de la Gestión de Riesgos}
+En esta fase se determina el enfoque para gestionar los riesgos.
+
+\subsection{Valoración de Riesgos}
+Esta fase se lleva a cabo antes del inicio del proyecto y se repite durante su desarrollo. Incluye las siguientes subfases:
+
+\begin{itemize}
+	\item \textbf{Identificación de Riesgos}: Se identifican los posibles riesgos que pueden surgir durante el proyecto.
+	\item \textbf{Análisis de Riesgos}: Se evalúa la importancia de los riesgos identificados y se priorizan según su relevancia.
+\end{itemize}
+
+\subsection{Gestión de Riesgos}
+Esta fase abarca la planificación y las estrategias para mitigar los riesgos identificados. Aunque estas fases se ejecutan antes del inicio del desarrollo del proyecto, su relevancia aumenta durante el desarrollo. Las subfases son:
+
+\begin{itemize}
+	\item \textbf{Planificación de Respuesta a Riesgos}: Se desarrollan estrategias específicas para enfrentar cada riesgo identificado.
+	\item \textbf{Resolución de Riesgos}: Se implementan las estrategias planificadas para gestionar los riesgos según lo previsto.
+	\item \textbf{Monitoreo}: Se realiza un seguimiento continuo de cada riesgo y se revisan las estrategias si estas no han producido los resultados esperados.
+\end{itemize}
+
+\section{Categoría de los riesgos}
+Los riesgos se organizan en diferentes categorías para simplificar su identificación y gestión. En este proyecto, se empleará la estructura jerárquica conocida como Risk Breakdown Structure (RBS), la cual se presenta en la imagen a continuación:
+\begin{figure}
+	\centering
+	\begin{tikzpicture}[scale=0.7, every node/.style={scale=0.7}, node distance=3mm and 3mm]
+
+		% Nodos principales
+		\node[fase, xshift=55mm, yshift=25mm] (proyecto) {Proyecto};
+		\node[fase] (tecnico) {Técnico};
+		\node[fase, right=of tecnico] (externo) {Externo};
+		\node[fase, right=of externo] (organizacional) {Organizacional};
+		\node[fase, right=of organizacional] (gestion) {Gestión de Proyecto};
+
+		% Subnodos de Técnico
+		\node[actividad, below=of tecnico,xshift=2.5mm] (requisitos) {Requisitos};
+		\node[actividad, below=of requisitos] (tecnologia) {Tecnología};
+		\node[actividad, below=of tecnologia] (complejidad) {Complejidad e Interfaces};
+		\node[actividad, below=of complejidad] (prestaciones) {Prestaciones y fiabilidad};
+		\node[actividad, below=of prestaciones] (calidad) {Calidad};
+
+		% Subnodos de Externo
+		\node[actividad, below=of externo, xshift=2.5mm] (subcontratistas) {Subcontratistas y proveedores};
+		\node[actividad, below=of subcontratistas] (regulacion) {Regulación};
+		\node[actividad, below=of regulacion] (mercado) {Mercado};
+		\node[actividad, below=of mercado] (usuario) {Usuario};
+		\node[actividad, below=of usuario] (tiempo) {Tiempo};
+
+		% Subnodos de Organizacional
+		\node[actividad, below=of organizacional,xshift=2.5mm] (dependencias) {Dependencias del proyecto};
+		\node[actividad, below=of dependencias] (recursos) {Recursos};
+		\node[actividad, below=of recursos] (financiacion) {Financiación};
+		\node[actividad, below=of financiacion] (priorizacion) {Priorización};
+
+		% Subnodos de Gestión de Proyecto
+		\node[actividad, below=of gestion,xshift=2.5mm] (estimacion) {Estimación};
+		\node[actividad, below=of estimacion] (planificacion) {Planificación};
+		\node[actividad, below=of planificacion] (control) {Control};
+		\node[actividad, below=of control] (comunicacion) {Comunicación};
+
+		% Conexiones
+		\draw[linea] ([yshift=2.5mm]tecnico.north) -- ([yshift=2.5mm]gestion.north);
+		\draw[linea] (tecnico.north) -- +(0,2.5mm);
+		\draw[linea] (externo.north)-- +(0,2.5mm);
+		\draw[linea] (organizacional.north) -- +(0,2.5mm);
+		\draw[linea] (gestion.north) -- +(0,2.5mm);
+
+		\draw[linea] ([xshift=17.5mm,yshift=2.5mm]externo.north) -- +(0,2.5mm);
+
+		\draw[linea] ([xshift=-16mm]tecnico.south) -- ([xshift=-18.5mm,yshift=10mm]calidad.south);
+		\draw[linea] (requisitos.west)-- +(-2mm,0);
+		\draw[linea] (tecnologia.west)-- +(-2mm,0);
+		\draw[linea] (complejidad.west)-- +(-2mm,0);
+		\draw[linea] (prestaciones.west)-- +(-2mm,0);
+		\draw[linea] (calidad.west)-- +(-2mm,0);
+
+		\draw[linea] ([xshift=-16mm]externo.south) -- ([xshift=-18.5mm,yshift=10mm]tiempo.south);
+		\draw[linea] (subcontratistas.west)-- +(-2mm,0);
+		\draw[linea] (regulacion.west)-- +(-2mm,0);
+		\draw[linea] (mercado.west)-- +(-2mm,0);
+		\draw[linea] (usuario.west)-- +(-2mm,0);
+		\draw[linea] (tiempo.west)-- +(-2mm,0);
+		\draw[linea] ([xshift=-16mm]organizacional.south) -- ([xshift=-18.5mm,yshift=10mm]priorizacion.south);
+		\draw[linea] (dependencias.west)-- +(-2mm,0);
+		\draw[linea] (recursos.west)-- +(-2mm,0);
+		\draw[linea] (financiacion.west)-- +(-2mm,0);
+		\draw[linea] (priorizacion.west)-- +(-2mm,0);
+
+		\draw[linea] ([xshift=-16mm]gestion.south) -- ([xshift=-18.5mm,yshift=10mm]comunicacion.south);
+		\draw[linea] (estimacion.west)-- +(-2mm,0);
+		\draw[linea] (planificacion.west)-- +(-2mm,0);
+		\draw[linea] (control.west)-- +(-2mm,0);
+		\draw[linea] (comunicacion.west)-- +(-2mm,0);
+
+	\end{tikzpicture}
+	\caption{Categorías de Riesgos}
+\end{figure}
+
+\section{Matriz de probabilidad e impacto}
+La matriz de probabilidad e impacto establece los valores que se utilizarán para dar prioridad a los riesgos en función de la probabilidad de que ocurran y su impacto en el proyecto.
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|>{\centering\arraybackslash}m{4cm}|>{\centering\arraybackslash}m{1cm}|>{\centering\arraybackslash}m{1.7cm}|>{\centering\arraybackslash}m{1.5cm}|>{\centering\arraybackslash}m{1.7cm}|>{\centering\arraybackslash}m{1.5cm}|>{\centering\arraybackslash}m{1.7cm}|}
+		\hline
+		\multicolumn{2}{|c|}{\multirow{3}{*}{\textbf{PROBABILIDAD}}} & \multicolumn{5}{c|}{\textbf{IMPACTO}}                                                                                                                                            \\
+		\cline{3-7}
+		\multicolumn{2}{|c|}{}                                       & \textbf{Muy Bajo}                     & \textbf{Bajo}            & \textbf{Moderado}         & \textbf{Alto}             & \textbf{Muy Alto}                                     \\
+		\cline{3-7}
+		\multicolumn{2}{|c|}{}                                       & \textbf{0.05}                         & \textbf{0.1}             & \textbf{0.2}              & \textbf{0.4}              & \textbf{0.8}                                          \\
+		\hline
+		\textbf{Muy probable}                                        & \textbf{0.9}                          & \cellcolor{green!30}0.05 & \cellcolor{yellow!50}0.09 & \cellcolor{red!50}0.18    & \cellcolor{red!50}0.36    & \cellcolor{red!50}0.72    \\
+		\hline
+		\textbf{Bastante probable}                                   & \textbf{0.7}                          & \cellcolor{green!30}0.04 & \cellcolor{yellow!50}0.07 & \cellcolor{yellow!50}0.14 & \cellcolor{red!50}0.28    & \cellcolor{red!50}0.56    \\
+		\hline
+		\textbf{Probable}                                            & \textbf{0.5}                          & \cellcolor{green!30}0.03 & \cellcolor{green!30}0.05  & \cellcolor{yellow!50}0.10 & \cellcolor{red!50}0.20    & \cellcolor{red!50}0.40    \\
+		\hline
+		\textbf{Poco probable}                                       & \textbf{0.3}                          & \cellcolor{green!30}0.02 & \cellcolor{green!30}0.03  & \cellcolor{yellow!50}0.06 & \cellcolor{yellow!50}0.12 & \cellcolor{red!50}0.24    \\
+		\hline
+		\textbf{Nada probable}                                       & \textbf{0.1}                          & \cellcolor{green!30}0.01 & \cellcolor{green!30}0.01  & \cellcolor{green!30}0.02  & \cellcolor{yellow!50}0.04 & \cellcolor{yellow!50}0.08 \\
+		\hline
+	\end{tabular}
+	\caption{Matriz de probabilidad e impacto}
+\end{table}
+

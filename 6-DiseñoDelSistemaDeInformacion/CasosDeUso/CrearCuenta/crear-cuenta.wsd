@@ -1,0 +1,72 @@
+@startuml
+title Creación de Usuario 
+
+actor Usuario
+
+entity "Cliente" as Client
+entity "AuthController" as Controller
+entity "AuthService" as Service
+entity "TokenService" as TokenService
+database "Base de Datos" as DB
+
+Usuario -> Client : Introduce el nombre y apellido
+activate Client
+Usuario -> Client : Introduce el email
+Usuario -> Client : Introduce la contraseña
+Usuario -> Client : Confirma la contraseña
+opt
+    Usuario -> Client : Introduce la fecha de nacimiento
+    Usuario -> Client : Introduce el país
+end
+Usuario -> Client : Pulsa botón de "Registrarse"
+Client -> Client : checkCookies()
+alt Cookies activadas
+    Client -> Controller : POST /register (datos)
+    activate Controller
+    Controller -> Controller: checkInputs(datos)
+    alt Inputs válidos
+        Controller -> Service : register(datos)
+        activate Service
+        Service -> Service : findOneUser(datos.email)
+        alt Usuario no existe
+            Service -> DB : save(datos)
+            activate DB
+            DB -> DB : <pre>save(datos)
+            activate DB
+            DB -> DB : encryptPassword(datos.password)
+            DB -> DB : <post>save(datos)
+            deactivate
+            ' alt Lanza excepción
+            '     DB --> Service : Error desconocido
+            '     Service --> Controller : Error desconocido
+            '     Controller --> Client : Error desconocido
+            '     Client --> Usuario : showNotification("Error desconocido")
+            ' else Usuario creado
+            DB --> Service : Devuelve el usuario
+            deactivate DB
+            Service-> TokenService : createToken(usuario)
+            activate TokenService
+            TokenService --> Service : Devuelve el token (JWT)
+            deactivate TokenService
+            Service --> Controller: Devuelve el usuario y el token (JWT)
+            Controller --> Client: Devuelve el usuario y el token (JWT)
+            Client -> Client: Guarda el token en las Cookies
+            Client --> Usuario: showNotification('Usuario creado correctamente')
+            ' end
+        else Usuario existe
+            Service --> Controller : Error - El email ya se ha usado
+            deactivate Service
+            Controller --> Client : Error - El email ya se ha usado
+            Client --> Usuario : showNotification("El email ya se ha usado")
+        end
+    else Inputs invalidos
+        Controller --> Client :Error - Faltan parámetros necesarios
+        Client --> Usuario : showNotification("Faltan parámetros necesarios")
+        deactivate Controller
+    end
+else Cookies desactivadas
+    Client --> Usuario : showNotification("Activa las cookies")
+    deactivate Client
+end
+
+@enduml

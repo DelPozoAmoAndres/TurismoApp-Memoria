@@ -1,0 +1,24 @@
+@startgantt
+Project starts 2023-06-22
+saturday are closed
+sunday are closed
+
+[Diseño de casos de uso reales] starts 2023-06-22
+[Diseño de casos de uso reales] ends 2023-06-26
+
+[Diseño de clases] starts 2023-06-26
+[Diseño de clases] ends 2023-06-27
+
+[Diseño de la arquitectura de módulos del sistema] starts 2023-06-27
+[Diseño de la arquitectura de módulos del sistema] ends 2023-06-28
+
+[Modelado de bases de datos] starts 2023-06-28
+[Modelado de bases de datos] ends 2023-06-29
+
+[Diseño de la interfaz de usuario] starts 2023-06-29
+[Diseño de la interfaz de usuario] ends 2023-07-21
+
+[Diseño de pruebas] starts 2023-07-24
+[Diseño de pruebas] ends 2023-08-04
+
+@endgantt

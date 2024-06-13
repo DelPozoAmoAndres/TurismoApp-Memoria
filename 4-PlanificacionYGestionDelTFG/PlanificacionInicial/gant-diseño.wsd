@@ -1,0 +1,28 @@
+@startgantt
+Project starts 2023-03-18
+
+[Diseño de casos de uso reales] lasts 3 days
+[Diseño de casos de uso reales] starts 2023-03-18
+[Diseño de casos de uso reales] ends 2023-03-20
+
+[Diseño de clases] lasts 2 days
+[Diseño de clases] starts 2023-03-20
+[Diseño de clases] ends 2023-03-21
+
+[Diseño de la arquitectura de módulos del sistema] lasts 2 days
+[Diseño de la arquitectura de módulos del sistema] starts 2023-03-21
+[Diseño de la arquitectura de módulos del sistema] ends 2023-03-22
+
+[Modelado de bases de datos] lasts 1 day
+[Modelado de bases de datos] starts 2023-03-22
+[Modelado de bases de datos] ends 2023-03-23
+
+[Diseño de la interfaz de usuario] lasts 6 days
+[Diseño de la interfaz de usuario] starts 2023-03-23
+[Diseño de la interfaz de usuario] ends 2023-03-30
+
+[Diseño de pruebas] lasts 5 days
+[Diseño de pruebas] starts 2023-03-30
+[Diseño de pruebas] ends 2023-04-03
+
+@endgantt

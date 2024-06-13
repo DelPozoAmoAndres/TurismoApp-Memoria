@@ -1,0 +1,20 @@
+@startuml
+
+package Cliente {
+  folder Apis
+  folder Contextos
+  folder Hooks
+  folder Componentes
+  folder Layouts
+  folder Tema
+}
+
+component Servidor
+Layouts --> Tema : usa
+Layouts -up-> Componentes : se compone
+Componentes -left-> Hooks : almacena su logica
+Hooks --> Apis : utiliza
+Hooks --> Contextos : utiliza
+Apis -left-> Servidor : se comunica
+
+@enduml

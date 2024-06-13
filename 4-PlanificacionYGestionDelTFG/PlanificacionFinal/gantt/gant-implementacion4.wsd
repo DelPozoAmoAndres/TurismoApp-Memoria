@@ -1,0 +1,15 @@
+@startgantt
+Project starts 2023-12-29
+saturday are closed
+sunday are closed
+
+[Integración de pasarela de pago] starts 2023-12-29
+[Integración de pasarela de pago] ends 2024-01-23
+
+[Codificación de estilos e interfaz de usuario] starts 2024-01-24
+[Codificación de estilos e interfaz de usuario] ends 2024-02-16
+
+[Despliegue del entorno] starts 2024-02-19
+[Despliegue del entorno] ends 2024-03-29
+
+@endgantt

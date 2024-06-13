@@ -1,0 +1,24 @@
+\begin{analisisCasoDeUso}
+	\centering
+	\begin{tabular} { | m{3cm} | p{13cm} | }
+		\hline
+		\multicolumn{2}{ | c | }{\bfseries Modificar un usuario}                                                                     \\ \hline
+		{\bfseries Precondiciones}  & Debe haber usuarios registrados en el sistema.                                                 \\ \hline
+		{\bfseries Postcondiciones} & Se muestra la información detallada de un usuario.                                             \\ \hline
+		{\bfseries Actores    }     & Usuario identificado con rol administrador.                                                    \\ \hline
+		{\bfseries Descripción}     & {\bfseries 1.} El usuario selecciona en el menú la opción “Dashboard” .                         \\
+		                            & {\bfseries 2.} El sistema muestra la pantalla principal del dashboard junto a un menú lateral. \\
+		                            & {\bfseries 3.} El usuario selecciona en el menú lateral la opción “Usuarios” .                  \\
+		                            & {\bfseries 4.} El sistema muestra una lista de usuarios registrados.                           \\
+		                            & {\bfseries 5.} El usuario selecciona la opción “Editar” del usuario a modificar.               \\
+		                            & {\bfseries 6.} El usuario realiza los cambios deseados en la información del usuario.          \\
+		                            & {\bfseries 7.} El sistema valida los datos.                                                    \\
+		                            & {\bfseries 8.} El sistema actualiza los datos del usuario.                                     \\ \hline
+		{\bfseries Variaciones}     & {\bfseries Escenario alternativo 1:} Si los datos ingresados no tienen el formato correcto.    \\
+		                            & {\bfseries 1.} El sistema muestra un mensaje de error.                                         \\
+		                            & {\bfseries 2.} Vuelta al paso 6.                                                               \\ \hline
+		{\bfseries Excepciones}     & Si ocurre un error en el proceso de edición, se muestra un mensaje de error.                   \\ \hline
+		{\bfseries Notas }          &                                                                                                \\ \hline
+	\end{tabular}
+	\caption{Caso de uso - Modificar un usuario}
+\end{analisisCasoDeUso}

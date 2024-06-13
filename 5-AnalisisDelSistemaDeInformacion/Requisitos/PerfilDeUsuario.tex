@@ -1,0 +1,70 @@
+\begin{enumitem}[label=\bfseries{RPer \arabic*.},leftmargin=*]
+	\item El sistema permitirá a los usuarios registrados visualizar su perfil.
+	\begin{enumitem}[label*=\bfseries{\arabic*.}]
+		\item El sistema mostrará los datos registrados por el usuario.
+	\end{enumitem}
+	\item El sistema permitirá a los usuarios registrados modificar datos de su perfil.
+	\begin{enumitem}[label*=\bfseries{\arabic*.}]
+		\item El sistema permitirá modificar los siguientes campos.
+		\begin{enumitem}[label*=\bfseries{\arabic*.}]
+			\item Nombre y Apellidos.
+			\begin{enumitem}[label*=\bfseries{\arabic*.}]
+				\item El sistema comprobará que la cadena introducida es mayor o igual que 8.
+			\end{enumitem}
+			\item Dirección de correo electrónico.
+			\begin{enumitem}[label*=\bfseries{\arabic*.}]
+				\item El sistema comprobará que coincide con un patrón de correo electrónico.
+				\item El sistema comprobará que ese correo electrónico no ha sido registrado por otro usuario.
+			\end{enumitem}
+			\item Fecha de nacimiento.
+			\begin{enumitem}[label*=\bfseries{\arabic*.}]
+				\item El sistema comprobará que el formato de la fecha de nacimiento es correcto.
+				\item El sistema comprobará que la fecha de nacimiento introducida es posterior al día de hoy.
+			\end{enumitem}
+			\item Teléfono.
+			\begin{enumitem}[label*=\bfseries{\arabic*.}]
+				\item El sistema comprobará que el número de teléfono introducido es valido.
+			\end{enumitem}
+			\item País.
+		\end{enumitem}
+		\item El sistema permitirá cancelar la edición de perfil.
+		\item Al editar algún campo, el sistema deberá habilitar un botón para confirmar el guardado.
+		\begin{enumitem}[label*=\bfseries{\arabic*.}]
+			\item El sistema comprobará que los campos cumplen con sus comprobaciones individuales.
+			\begin{enumitem}[label*=\bfseries{\arabic*.}]
+				\item El sistema mostrará un mensaje de error si no se cumple alguna de las comprobaciones de los campos.
+				\item En caso de cumplir con todas las comprobaciones, el sistema mostrará un mensaje de que el usuario ha actualizado correctamente sus datos.
+			\end{enumitem}
+		\end{enumitem}
+	\end{enumitem}
+
+	\item El sistema permitirá que cualquier usuario registrado elimine su cuenta.
+	\begin{enumitem}[label*=\bfseries{\arabic*.}]
+		\item El sistema mostrará un mensaje de confirmación.
+	\end{enumitem}
+	\item El sistema permitirá a los usuarios registrados cambiar su contraseña.
+	\begin{enumitem}[label*=\bfseries{\arabic*.}]
+		\item El sistema requerirá que el usuario introduzca su contraseña actual.
+		\begin{enumitem}[label*=\bfseries{\arabic*.}]
+			\item El sistema comprobará que la contraseña introducida coincide con la contraseña actual del usuario.
+		\end{enumitem}
+		\item El sistema requerirá que el usuario introduzca la nueva contraseña.
+		\begin{enumitem}[label*=\bfseries{\arabic*.}]
+			\item El sistema comprobará que la contraseña introducida tiene una longitud mínima de 8 y máxima de 16.
+		\end{enumitem}
+		\item El sistema requerirá que el usuario confirme la nueva contraseña.
+		\begin{enumitem}[label*=\bfseries{\arabic*.}]
+			\item El sistema comprobará que la confirmación coincide con la nueva contraseña introducida anteriormente.
+		\end{enumitem}
+		\item Al completar todos los campos, el sistema habilitará un botón para confirmar el cambio de contraseña.
+		\begin{enumitem}[label*=\bfseries{\arabic*.}]
+			\item El sistema comprobará que los datos introducidos en los campos están rellenos correctamente.
+			\begin{enumitem}[label*=\bfseries{\arabic*.}]
+				\item El sistema mostrará un mensaje de error si no se cumple alguna de las comprobaciones de los campos.
+				\item En caso de cumplir todas las comprobaciones, el sistema mostrará un mensaje de que el usuario ha actualizado correctamente su contraseña.
+			\end{enumitem}
+		\end{enumitem}
+	\end{enumitem}
+	\item El sistema permitirá a los usuarios registrados cerrar sesión.
+\end{enumitem}
+

@@ -1,0 +1,142 @@
+\subsubsection*{Product Breackdown Structure}
+La ``Product Breackdown Structure`` (PBS) es una herramienta utilizada en la gestión de proyectos para descomponer el producto final en componentes más pequeños y manejables.
+\\ [1ex]
+La PBS facilita la planificación, estimación de costos, asignación de recursos y seguimiento del progreso del proyecto. Cada componente de la PBS representa una funcionalidad o característica específica del producto y puede descomponerse en más subcomponentes.
+\\ [1ex]
+En la siguiente figura, se representa la PBS utilizando un diagrama de bloques. Cada bloque representa una fase del proyecto y sus actividades asociadas. Las lineas indican la secuencia de las fases del proyecto.
+
+\tikzset{
+	base/.style = {draw, text width=30mm, minimum height=20mm, align=center},
+	fase/.style = {base, fill=gray!30, rectangle},
+	actividad/.style = {base, fill=gray!10},
+	linea/.style = {draw, thick}
+}
+
+\begin{figure}[H]
+	\centering
+	\begin{adjustwidth}{-0.45cm}{}
+		\begin{tikzpicture}[scale=0.7, every node/.style={scale=0.7}, node distance=3mm and 3mm]
+			% Fases
+			\node[fase] (gestion) {Gestión inicial};
+			\node[fase, right=of gestion] (analisis) {Análisis};
+			\node[fase, right=of analisis] (diseno) {Diseño};
+			\node[fase, right=of diseno] (implementacion) {Implementación};
+			\node[fase, right=of implementacion] (pruebas) {Pruebas};
+			\node[fase, right=of pruebas] (documentacion) {Documentación};
+			\node[fase, right=of documentacion] (cierre) {Cierre de proyecto};
+			\node[fase, right=of diseno, yshift=25mm] (proyecto) {Proyecto};
+			% ... Otras fases
+
+			% Actividades de Gestión Inicial
+			\node[actividad, below=of gestion, xshift=2.5mm] (explicacion) {Explicación del proyecto};
+			\node[actividad, below=of explicacion] (estudio) {Estudio de las alternativas tecnológicas};
+			%\node[actividad, below=of estudio] (viabilidad) {Estudio de la viabilidad};
+			\node[actividad, below=of estudio] (planificacion) {Planificación del proyecto};
+			\node[actividad, below=of planificacion] (creacion) {Creación de un plan de gestion de riesgos};
+			\node[actividad, below=of creacion] (riesgos) {Identificación de riesgos};
+			\node[actividad, below=of riesgos] (pinicial) {Realización del presupuesto inicial};
+			% Actividades de Análisis
+			\node[actividad, below=of analisis, xshift=2.5mm] (definicion) {Definición del alcance del sistema};
+			\node[actividad, below=of definicion] (requisitos) {Análisis de los requisitos};
+			\node[actividad, below=of requisitos] (acasos) {Análisis de los casos de uso};
+			\node[actividad, below=of acasos] (aclases) {Análisis de las clases};
+			\node[actividad, below=of aclases] (prototipos) {Diseño de los prototipos de las interfaces de usuario};
+			\node[actividad, below=of prototipos] (plan) {Elaboración del plan de pruebas};
+			% Actividades de Diseño
+			\node[actividad, below=of diseno, xshift=2.5mm] (dcasos) {Diseño de casos de uso};
+			\node[actividad, below=of dcasos] (dclases) {Diseño de clases};
+			\node[actividad, below=of dclases] (darquitectura) {Diseño de la arquitectura del sistema};
+			\node[actividad, below=of darquitectura] (mbbdd) {Modelado de bases de datos};
+			\node[actividad, below=of mbbdd] (inter) {Diseño de la interfaz de usuario};
+			\node[actividad, below=of inter] (dpruebas) {Diseño de pruebas};
+			% Actividades de Implementación
+			\node[actividad, below=of implementacion, xshift=2.5mm] (repo) {Creación de los repositorios};
+			\node[actividad, below=of repo] (server) {Creación del servidor de aplicaciones};
+			\node[actividad, below=of server] (cliente) {Creación de la aplicación del cliente};
+			\node[actividad, below=of cliente] (intebbdd) {Integración de la base de datos};
+			\node[actividad, below=of intebbdd] (gusuarios) {Implementación del subsistema de gestión de usuarios};
+			\node[actividad, below=of gusuarios] (gactividades) {Implementación del subsistema de gestión de actividades};
+			\node[actividad, below=of gactividades] (greservas) {Implementación del subsistema de gestión de reservas};
+			\node[actividad, below=of greservas] (pasarela) {Integración de la pasarela de pago};
+			\node[actividad, below=of pasarela] (codeinter) {Codificación de estilos e interfaz de usuario};
+			% Actividades de Pruebas
+			\node[actividad, below=of pruebas, xshift=2.5mm] (uni) {Desarrollo de pruebas unitarias};
+			\node[actividad, below=of uni] (inte) {Desarrollo de pruebas de integración};
+			\node[actividad, below=of inte] (acces) {Desarrollo de pruebas de accesibilidad};
+
+			%Documentación
+			\node[actividad, below=of documentacion, xshift=2.5mm] (instalacion) {Manual de instalación};
+			\node[actividad, below=of instalacion] (ejecucion) {Manual de ejecución};
+			\node[actividad, below=of ejecucion] (musuario) {manual de usuario};
+
+			%Cierre
+			\node[actividad, below=of cierre, xshift=2.5mm] (planicierre) {Elaboración de la planificacion de cierre};
+			\node[actividad, below=of planicierre] (preucierre) {Calculo del presupuesto final};
+			\node[actividad, below=of preucierre] (reucierre) {Reunion de cierre};
+
+
+			% Conexiones entre fases
+			\draw[linea] ([yshift=2.5mm]gestion.north) -- ([yshift=2.5mm]cierre.north);
+			\draw[linea] (gestion.north) -- +(0,3mm);
+			\draw[linea] (analisis.north) -- +(0,3mm);
+			\draw[linea] (diseno.north) -- +(0,3mm);
+			\draw[linea] (implementacion.north) -- +(0,5mm);
+			\draw[linea] (pruebas.north) -- +(0,3mm);
+			\draw[linea] (documentacion.north) -- +(0,3mm);
+			\draw[linea] (cierre.north) -- +(0,3mm);
+
+			% Conexiones entre actividades
+			\draw[linea] ([xshift=-16mm]gestion.south) -- ([xshift=-18.5mm,yshift=10mm]pinicial.south);
+			\draw[linea] (explicacion.west) -- +(-2mm,0);
+			\draw[linea] (estudio.west) -- +(-2mm,0);
+			\draw[linea] (planificacion.west) -- +(-2mm,0);
+			\draw[linea] (creacion.west) -- +(-2mm,0);
+			\draw[linea] (riesgos.west) -- +(-2mm,0);
+			\draw[linea] (pinicial.west) -- +(-2mm,0);
+
+			\draw[linea] ([xshift=-16mm]analisis.south) -- ([xshift=-18.5mm,yshift=10mm]plan.south);
+			\draw[linea] (definicion.west) -- +(-2mm,0);
+			\draw[linea] (requisitos.west) -- +(-2mm,0);
+			\draw[linea] (acasos.west) -- +(-2mm,0);
+			\draw[linea] (aclases.west) -- +(-2mm,0);
+			\draw[linea] (prototipos.west) -- +(-2mm,0);
+			\draw[linea] (plan.west) -- +(-2mm,0);
+
+			\draw[linea] ([xshift=-16mm]diseno.south) -- ([xshift=-18.5mm,yshift=10mm]dpruebas.south);
+			\draw[linea] (dcasos.west) -- +(-2mm,0);
+			\draw[linea] (dclases.west) -- +(-2mm,0);
+			\draw[linea] (darquitectura.west) -- +(-2mm,0);
+			\draw[linea] (mbbdd.west) -- +(-2mm,0);
+			\draw[linea] (inter.west) -- +(-2mm,0);
+			\draw[linea] (dpruebas.west) -- +(-2mm,0);
+
+			\draw[linea] ([xshift=-16mm]implementacion.south) -- ([xshift=-18.5mm,yshift=10mm]codeinter.south);
+			\draw[linea] (repo.west) -- +(-2mm,0);
+			\draw[linea] (server.west) -- +(-2mm,0);
+			\draw[linea] (cliente.west) -- +(-2mm,0);
+			\draw[linea] (intebbdd.west) -- +(-2mm,0);
+			\draw[linea] (gusuarios.west) -- +(-2mm,0);
+			\draw[linea] (gactividades.west) -- +(-2mm,0);
+			\draw[linea] (greservas.west) -- +(-2mm,0);
+			\draw[linea] (pasarela.west) -- +(-2mm,0);
+			\draw[linea] (codeinter.west) -- +(-2mm,0);
+
+			\draw[linea] ([xshift=-16mm]pruebas.south) -- ([xshift=-18.5mm,yshift=10mm]acces.south);
+			\draw[linea] (uni.west) -- +(-2mm,0);
+			\draw[linea] (inte.west) -- +(-2mm,0);
+			\draw[linea] (acces.west) -- +(-2mm,0);
+
+			\draw[linea] ([xshift=-16mm]documentacion.south) -- ([xshift=-18.5mm,yshift=10mm]musuario.south);
+			\draw[linea] (instalacion.west) -- +(-2mm,0);
+			\draw[linea] (ejecucion.west) -- +(-2mm,0);
+			\draw[linea] (musuario.west) -- +(-2mm,0);
+
+			\draw[linea] ([xshift=-16mm]cierre.south) -- ([xshift=-18.5mm,yshift=10mm]reucierre.south);
+			\draw[linea] (planicierre.west) -- +(-2mm,0);
+			\draw[linea] (preucierre.west) -- +(-2mm,0);
+			\draw[linea] (reucierre.west) -- +(-2mm,0);
+
+		\end{tikzpicture}
+	\end{adjustwidth}
+	\caption{Product Breackdown Structure}
+\end{figure}

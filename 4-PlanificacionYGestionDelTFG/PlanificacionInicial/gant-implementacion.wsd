@@ -1,0 +1,43 @@
+@startgantt
+Project starts 2023-04-03 
+[Creación de los repositorios] lasts 1 day
+[Creación de los repositorios] starts 2023-04-03
+[Creación de los repositorios] ends 2023-04-03
+
+[Creación del servidor de aplicaciones] lasts 1 day
+[Creación del servidor de aplicaciones] starts 2023-04-03
+[Creación del servidor de aplicaciones] ends 2023-04-03
+
+[Creación de la aplicación cliente] lasts 1 day
+[Creación de la aplicación cliente] starts 2023-04-03
+[Creación de la aplicación cliente] ends 2023-04-03
+
+[Integración de la base de datos] lasts 1 day
+[Integración de la base de datos] starts 2023-04-04
+[Integración de la base de datos] ends 2023-04-04
+
+[Implementación del subsistema de gestión de usuarios] lasts 4 days
+[Implementación del subsistema de gestión de usuarios] starts 2023-04-04
+[Implementación del subsistema de gestión de usuarios] ends 2023-04-07
+
+[Implementación del subsistema de gestión de actividades] lasts 5 days
+[Implementación del subsistema de gestión de actividades] starts 2023-04-07
+[Implementación del subsistema de gestión de actividades] ends 2023-04-11
+
+[Implementación del subsistema de gestión de reservas] lasts 12 days
+[Implementación del subsistema de gestión de reservas] starts 2023-04-11
+[Implementación del subsistema de gestión de reservas] ends 2023-04-26
+
+[Integración de pasarela de pago] lasts 6 days
+[Integración de pasarela de pago] starts 2023-04-26
+[Integración de pasarela de pago] ends 2023-05-03
+
+[Codificación de estilos e interfaz de usuario] lasts 6 days
+[Codificación de estilos e interfaz de usuario] starts 2023-05-03
+[Codificación de estilos e interfaz de usuario] ends 2023-05-10
+
+[Despliegue del entorno] lasts 5 days
+[Despliegue del entorno] starts 2023-05-10
+[Despliegue del entorno] ends 2023-05-14
+
+@endgantt

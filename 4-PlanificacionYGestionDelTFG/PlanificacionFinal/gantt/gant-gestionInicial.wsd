@@ -1,0 +1,36 @@
+@startgantt
+Project starts 2023-03-01
+
+[Explicación del proyecto] lasts 1 day
+[Explicación del proyecto] starts 2023-03-01
+[Explicación del proyecto] ends 2023-03-01
+
+[Estudio de las alternativas tecnológicas] lasts 2 days
+[Estudio de las alternativas tecnológicas] starts 2023-03-01
+[Estudio de las alternativas tecnológicas] ends 2023-03-02
+
+[Selección de la arquitectura tecnológica] lasts 1 day
+[Selección de la arquitectura tecnológica] starts 2023-03-02
+[Selección de la arquitectura tecnológica] ends 2023-03-02
+
+[Estudio de viabilidad] lasts 3 days
+[Estudio de viabilidad] starts 2023-03-03
+[Estudio de viabilidad] ends 2023-03-05
+
+[Planificación del proyecto] lasts 2 days
+[Planificación del proyecto] starts 2023-03-05
+[Planificación del proyecto] ends 2023-03-06
+
+[Creación de un plan de gestión de riesgos] lasts 2 days
+[Creación de un plan de gestión de riesgos] starts 2023-03-07
+[Creación de un plan de gestión de riesgos] ends 2023-03-08
+
+[Identificación de riesgos] lasts 1 day
+[Identificación de riesgos] starts 2023-03-08
+[Identificación de riesgos] ends 2023-03-08
+
+[Realización del presupuesto inicial] lasts 1 day
+[Realización del presupuesto inicial] starts 2023-03-09
+[Realización del presupuesto inicial] ends 2023-03-09
+
+@endgantt

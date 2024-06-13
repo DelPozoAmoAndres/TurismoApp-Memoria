@@ -1,0 +1,299 @@
+@startuml
+
+package “Models” {
+  entity User {
+    String name
+    String email
+    Date birthday
+    String country
+    Number telephone
+    String password
+    String role
+  }
+  
+  entity Reservation {
+    Number numPersons
+    String eventId
+    String email
+    String name
+    Number telephone
+    String paymentId
+    Number price
+    String state
+    Date date
+  }
+    entity Activity {
+    String name
+    Map description
+    String location
+    Number duration
+    String state
+    String category
+    Array images
+  }
+  
+  entity Event {
+    Number seats
+    Number bookedSeats
+    String guide
+    Date date
+    String language
+    Number price
+    String state
+  }
+  
+  entity Review {
+    Number score
+    String comment
+    String author
+    String reservationId
+  }
+}
+
+User “1” *-- “0..*” Reservation : contiene
+Activity “1” *-- “0..*” Event : contiene
+Activity “1” *-- “0..*” Review : contiene
+
+package Servicios {
+ class UserService {
+  +getOneUser(userId: string, projection: Record<string, unknown>): Promise<User>
+  +updateUser(userId: string, changes: Record<string, unknown>): Promise<User>
+  +changePassword(userId: string, oldPass: string, newPass: string)
+  +deleteUser(userId: string)
+ }
+  
+ class ActivityService {
+  +getAllActivities(queryOptions: QueryOptions): Promise<any>
+  +getOneActivity(activityId: string): Promise<any>
+  +getActivityFromEvent(eventId: string): Promise<any>
+  +getEvents(activityId: string): Promise<any>
+  +getAllReviewsByActivityId(activityId: string): Promise<any>
+  +getMaxPrice(): Promise<any>
+  +getPopular(): Promise<any>
+ }
+
+  class AuthService {
+    +AuthService(tokenService: TokenService)
+    +login(email: string, password: string): Promise<{ token: string, user: User }>
+    +register(newUser: User)
+  }
+  
+  class AdminUserService {
+  +AdminUserService(eventService: EventService)
+  +addUser(newUser: User): Promise<any>
+  +getAllUsers(queryOptions: QueryOptions): Promise<any>
+  +getOneUser(userId: string): Promise<any>
+  +deleteUser(userId: string): Promise<any>
+  +editUser(userId: string, changes: Record<string, unknown>): Promise<any>
+  +getWorkers(queryOptions: QueryOptions): Promise<any>
+ }
+  
+ class AdminActivityService {
+  +addActivity(newActivity: Activity): Promise<any>
+  +editActivity(activityId: string, changes: Record<string, unknown>): Promise<any>
+  +deleteActivity(activityId: string): Promise<any>
+  +addEvents(activityId: string, newEvents: Event[]): Promise<any>
+  +deleteReview(activityId: string, reviewId: string): Promise<any>
+  +getAllActivities(queryOptions: QueryOptions): Promise<any>
+ }
+
+ class EventService {
+  +EventService(reservationService: ReservationService)
+  +getOneEvent(eventId: string): Promise<Event>
+  +getParticipants(eventId: string): Promise<any[]>
+  +getWorkerEvents(workerId: string): Promise<Event[]>
+  +getEvents(search: string, filters: Record<string, unknown>): Promise<Event[]>
+  +deleteEvents(eventId: string, body: RecurrentEventDeleteRequest)
+  +updateEvent(eventId: string, body: Event)
+ }
+
+
+}
+
+package “Servicios “{
+
+  
+ class DashboardService {
+  +getTotalReservations(): Promise<number>
+  +getTotalIncome(): Promise<number>
+  +getOccupation(): Promise<{ occupationRate: string, occupationPoints: { day: number, occupationRatio: number }[] }>
+  +getTotalUsers(): Promise<number>
+  +getCancelationRate(): Promise<{ cancelationsByDayOfMonth: { period: string, cancellations: number }[], cancelRate: string }>
+  +getCategoryReservations(): Promise<{ category: string, reservationsRate: number }[]>
+  +getReservations(): Promise<any[]>
+ }
+  
+  interface PaymentService {
+    +createIntent(amount: number): Promise<PaymentIntent>
+    +confirmIntent(paymentId: string): Promise<PaymentIntent>
+    +verifyStatus(paymentId: string): Promise<string>
+    +cancelPayment(paymentId: string)
+  }
+  
+class ReservationService {
+  +ReservationService(paymentService: PaymentService)
+  +getOneReservation(reservationId: string, userId: string): Promise<any>
+  +getAllReservations(userId: string): Promise<any[]>
+  +getAllReservationsAdmin(): Promise<any[]>
+  +createReservation(reservation: ReservationDoc, intentId: string, userId: string)
+  +cancelReservation(reservationId: string, userId: string)
+  -formatData(reservation: ReservationDoc): Promise<any>
+  -groupReservations(reservations: any[]): Promise<any[]>
+}
+  
+class ReviewService {
+  +getReviewFromReservation(reservationId: string): Promise<any>
+  +addReview(activityId: string, review: Review, userId: string)
+  +editReview(reviewId: string, review: Review, userId: string)
+  +deleteReview(reviewId: string, userId: string)
+}
+  
+ class StripeService extends PaymentService{
+  -stripe: Stripe
+  +StripeService()
+  +verifyStatus(intentId: string): Promise<PaymentStatus>
+  +createIntent(amount: number): Promise<PaymentIntent>
+  +cancelPayment(paymentIntentId: string)
+  +confirmIntent(paymentIntentId: string): Promise<PaymentIntent>
+ }
+ class TokenService {
+  +adminCheck(req: Request)
+  +signToken(decodedToken: DecodedToken): string
+  +createToken(user: User): string
+  +getUserId(req: Request): string
+  +verifyToken(req: Request): DecodedToken
+ }
+}
+
+package Controladores {
+  class UserController {
+    +UserController(userService: UserService)
+    +getOneUser(req: AuthenticatedRequest, res: Response)
+    +updateUser(req: AuthenticatedRequest, res: Response)
+    +changePassword(req: AuthenticatedRequest, res: Response)
+    +deleteUser(req: AuthenticatedRequest, res: Response)
+  }
+  
+  class ActivityController {
+    +ActivityController(activityService: ActivityService)
+    +getAllActivities(req: Request, res: Response)
+    +getOneActivity(req: Request, res: Response)
+    +getActivityFromEvent(req: Request, res: Response)
+    +getEvents(req: Request, res: Response)
+    +getAllReviewsByActivityId(req: Request, res: Response)
+    +getMaxPrice(req: Request, res: Response)
+    +getPopular(req: Request, res: Response)
+  }
+  
+  class AdminActivityController {
+    +AdminActivityController(adminActivityService: AdminActivityService, eventService: EventService)
+    +addActivity(req: Request, res: Response)
+    +editActivity(req: Request, res: Response)
+    +deleteActivity(req: Request, res: Response)
+    +addEvents(req: Request, res: Response)
+    +getEvents(req: Request, res: Response)
+    +deleteReview(req: Request, res: Response)
+    +getAllActivities(req: Request, res: Response)
+  }
+  
+  class AdminUserController {
+    +AdminUserController(adminUserService: AdminUserService, reservationService: ReservationService)
+    +addUser(req: Request, res: Response)
+    +getAllUsers(req: Request, res: Response)
+    +getOneUser(req: Request, res: Response)
+    +deleteUser(req: Request, res: Response)
+    +editUser(req: Request, res: Response)
+    +getUserReservations(req: Request, res: Response)
+    +getAllReservations(req: Request, res: Response)
+    +getWorkers(req: Request, res: Response)
+  }
+  
+  class AuthController {
+    +AuthController(authService: AuthService)
+    +login(req: Request, res: Response)
+    +register(req: Request, res: Response)
+  }
+
+   class EventController {
+    +EventController(eventService: EventService)
+    +getOneEvent(req: Request, res: Response)
+    +getParticipants(req: Request, res: Response)
+    +getWorkerEvents(req: Request, res: Response)
+    +deleteEvents(req: Request, res: Response)
+    +updateEvent(req: Request, res: Response)
+  }
+}
+
+package “Controladores “{
+   class DashboardController {
+    +DashboardController(dashboardService: DashboardService)
+    +getTotalReservations(req: Request, res: Response)
+    +getTotalIncome(req: Request, res: Response)
+    +getOccupation(req: Request, res: Response)
+    +getTotalUsers(req: Request, res: Response)
+    +getCancelationRate(req: Request, res: Response)
+    +getCategoryReservationss(req: Request, res: Response)
+    +getResume(req: Request, res: Response)
+    +getReservations(req: Request, res: Response)
+  }
+  
+  class PaymentController {
+    +PaymentController(paymentService: PaymentService)
+    +createIntent(req: Request, res: Response)
+    +confirmIntent(req: Request, res: Response)
+    +verifyStatus(req: Request, res: Response)
+  }
+  
+  class ReservationController {
+    +ReservationController(reservationService: ReservationService)
+    +getOneReservation(req: AuthenticatedRequest, res: Response)
+    +getAllReservations(req: AuthenticatedRequest, res: Response)
+    +createReservation(req: AuthenticatedRequest, res: Response)
+    +cancelReservation(req: AuthenticatedRequest, res: Response)
+  }
+  class ReviewController {
+    +ReviewController(reviewService: ReviewService)
+    +getReviewFromReservation(req: Request, res: Response)
+    +addReview(req: AuthenticatedRequest, res: Response)
+    +editReview(req: AuthenticatedRequest, res: Response)
+    +deleteReview(req: AuthenticatedRequest, res: Response)
+  }
+}
+
+UserService -down-> User
+AdminUserService -down-> User
+ActivityService -down-> User
+AdminActivityService -down-> User
+AdminUserService -down-> User
+AuthService -down-> User
+EventService -down-> User
+
+DashboardService -right-> User
+
+
+ReservationService -right-> User
+ReviewService -right-> User
+StripeService -right-> User
+TokenService -right-> User
+
+
+
+' Relaciones de asociación entre controladores y servicios
+UserController --> UserService
+ActivityController --> ActivityService
+AdminUserController --> AdminUserService
+AdminUserService -right-> EventService
+AdminActivityController --> AdminActivityService
+AdminActivityController --> EventService
+AuthController --> AuthService
+DashboardController -up-> DashboardService
+EventController --> EventService
+PaymentController -up-> PaymentService
+ReservationController -up-> ReservationService
+ReviewController -up-> ReviewService
+AuthService --> TokenService
+EventService --> ReservationService
+ReservationService --> PaymentService
+
+@enduml
+

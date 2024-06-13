@@ -1,0 +1,29 @@
+\begin{analisisCasoDeUso}
+	\centering
+	\begin{tabular} { | m{3cm} | p{13cm} | }
+		\hline
+		\multicolumn{2}{ | c | }{\bfseries Añadir una actividad}                                                                           \\ \hline
+		{\bfseries Precondiciones}  & Estar accediendo a la aplicación a través de un ordenador.                                           \\ \hline
+		{\bfseries Postcondiciones} & Registrar en el sistema una nueva actividad.                                                         \\ \hline
+		{\bfseries Actores    }     & Iniciado por cualquier usuario con rol administrador.                                                \\ \hline
+		{\bfseries Descripción}     & {\bfseries 1.} El usuario selecciona en el menú la opción “Dashboard” .                               \\
+		                            & {\bfseries 2.} El sistema muestra la pantalla principal del dashboard junto a un menú lateral.       \\
+		                            & {\bfseries 3.} El usuario selecciona en el menú lateral la opción “Actividades” .                     \\
+		                            & {\bfseries 4.} El sistema muestra un listado de actividades ya existentes.                           \\
+		                            & {\bfseries 5.} El usuario selecciona el botón “Añadir actividad” .                                    \\
+		                            & {\bfseries 6.} El sistema muestra un formulario.                                                     \\
+		                            & {\bfseries 7.} El usuario introduce los datos requeridos.                                            \\
+		                            & {\bfseries 8.} El usuario envía el formulario de creación de actividad.                              \\
+		                            & {\bfseries 9.} El sistema verifica los datos del formulario.                                         \\
+		                            & {\bfseries 10.} El sistema registra los datos de la nueva actividad en la base de datos.             \\\hline
+		{\bfseries Variaciones}     & {\bfseries Escenario Alternativo 1} El usuario cancela la creación de la nueva actividad             \\
+		                            & {\bfseries 8.} El usuario presiona la opción “Cerrar”.                                               \\
+		                            & {\bfseries 9.} El sistema cierra el formulario.                                                      \\
+		                            & {\bfseries Escenario Alternativo 2} El usuario no rellena correctamente el formulario.               \\
+		                            & {\bfseries 10.} El sistema muestra un mensaje de error                                               \\
+		                            & {\bfseries 11.} Volver al paso 7.                                                                    \\ \hline
+		{\bfseries Excepciones}     & Si ocurre un error en el proceso de creación de una nueva actividad, se muestra un mensaje de error. \\ \hline
+		{\bfseries Notas }          &                                                                                                      \\ \hline
+	\end{tabular}
+	\caption{Caso de uso - Añadir una actividad}
+\end{analisisCasoDeUso}

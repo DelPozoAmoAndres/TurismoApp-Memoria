@@ -1,0 +1,28 @@
+\begin{analisisCasoDeUso}
+	\centering
+	\begin{tabular} { | m{3cm} | p{13cm} | }
+		\hline
+		\multicolumn{2}{ | c | }{\bfseries Modificar perfil}                                                                   \\ \hline
+		{\bfseries Precondiciones}  & No.                                                                                      \\ \hline
+		{\bfseries Postcondiciones} & Los cambios realizados en el perfil del usuario son guardados.                           \\ \hline
+		{\bfseries Actores    }     & Iniciado por cualquier usuario identificado.                                             \\ \hline
+		{\bfseries Descripción}     & {\bfseries 1.} El usuario selecciona en el menú la opción “Área Personal” .               \\
+		                            & {\bfseries 2.} El sistema muestra la página de perfil.                                   \\
+		                            & {\bfseries 3.} El usuario visualiza la información de su perfil.                         \\
+		                            & {\bfseries 4.} El usuario selecciona la opción “Editar datos de perfil” .                 \\
+		                            & {\bfseries 5.} El sistema muestra un formulario con los datos del perfil del usuario.    \\
+		                            & {\bfseries 6.} El usuario realiza los cambios deseados en la información del perfil.     \\
+		                            & {\bfseries 7.} El usuario guarda los cambios.                                            \\
+		                            & {\bfseries 8.} El sistema valida los nuevos datos del perfil.                            \\
+		                            & {\bfseries 9.} El sistema actualiza los datos del usuario en el sistema.                 \\ \hline
+		{\bfseries Variaciones}     & {\bfseries Escenario alternativo 1:} En caso de que los datos cambiados no sean válidos. \\
+		                            & {\bfseries 9.} El sistema muestra un mensaje de error.                                   \\
+		                            & {\bfseries 10.} Volver al paso 3.                                                        \\
+		                            & {\bfseries Escenario alternativo 2:} En caso de que no se quiera hacer un cambio.        \\
+		                            & {\bfseries 7.} El usuario cancela la edición.                                            \\
+		                            & {\bfseries 8.} El usuario visualiza la información de su perfil.                         \\ \hline
+		{\bfseries Excepciones}     & Si ocurre un error en el proceso de edición del perfil, se muestra un mensaje de error.  \\ \hline
+		{\bfseries Notas }          &                                                                                          \\ \hline
+	\end{tabular}
+	\caption{Caso de uso - Modificar perfil}
+\end{analisisCasoDeUso}

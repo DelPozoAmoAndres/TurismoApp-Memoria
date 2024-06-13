@@ -1,0 +1,39 @@
+@startuml
+
+skin rose
+
+actor “Usuario administrador” as main
+
+package “Actividades” {
+  main -up- (Añadir una actividad)
+  main -up- (Editar una actividad)
+  main -up- (Eliminar una actividad)
+
+  package “Eventos” {
+    main -up- (Añadir un evento)
+    main -up- (Editar un evento)
+    main -up- (Cancelar un evento)
+  }
+}
+
+package “Usuarios” {
+  main -- (Buscar usuarios)
+  (Buscar usuarios) .left.> (Filtrar usuarios) : include
+  main -- (Visualizar información de un usuario)
+  main -- (Modificar un usuario)
+  main -- (Eliminar un usuario)
+  main-left-(Dar de alta un usuario)
+}
+
+
+package “Reservas” {
+  (Editar reservas) .up.> (Modificar un usuario) : extends
+  (Visualizar información de reservas) .up.> (Visualizar información de un usuario) : extends
+}
+
+package “Estadísticas” {
+  main -- (Visualizar datos estadísticos)
+}
+
+
+@enduml

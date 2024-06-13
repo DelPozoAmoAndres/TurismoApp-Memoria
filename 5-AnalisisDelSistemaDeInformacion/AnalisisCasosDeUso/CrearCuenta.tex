@@ -1,0 +1,25 @@
+\begin{analisisCasoDeUso}
+	\centering
+	\begin{tabular} { | m{3cm} | p{13cm} | }
+		\hline
+		\multicolumn{2}{ | c | }{\bfseries Crear cuenta}                                                                        \\ \hline
+		{\bfseries Precondiciones}  & No.                                                                                       \\ \hline
+		{\bfseries Postcondiciones} & El usuario queda registrado en el sistema e inicia sesión automáticamente.                \\ \hline
+		{\bfseries Actores    }     & Iniciado por cualquier usuario sin identificar                                            \\ \hline
+		{\bfseries Descripción}     & {\bfseries 1.} El usuario selecciona en el menú la opción “Cuenta” .                       \\
+		                            & {\bfseries 2.} El sistema muestra la página de inicio de sesión.                          \\
+		                            & {\bfseries 3.} El usuario selecciona la opción “Regístrate aquí” .                         \\
+		                            & {\bfseries 4.} El sistema muestra la página de registro.                                  \\
+		                            & {\bfseries 5.} El usuario introduce los datos requeridos.                                 \\
+		                            & {\bfseries 6.} El usuario envía el formulario de registro.                                \\
+		                            & {\bfseries 7.} El sistema valida los datos del formulario.                                \\
+		                            & {\bfseries 8.} El sistema registra los datos del usuario en la base de datos.             \\
+		                            & {\bfseries 9.} El sistema confirma el registro del usuario.                               \\ \hline
+		{\bfseries Variaciones}     & {\bfseries Escenario alternativo 1:} En caso de que los datos ingresados no sean válidos. \\
+		                            & {\bfseries 8.} El sistema muestra un mensaje de error.                                    \\
+		                            & {\bfseries Volver al paso 4.}                                                             \\ \hline
+		{\bfseries Excepciones}     & Si ocurre un error en el proceso de registro, se muestra un mensaje de error.             \\ \hline
+		{\bfseries Notas }          &                                                                                           \\ \hline
+	\end{tabular}
+	\caption{Caso de uso - Crear cuenta}
+\end{analisisCasoDeUso}

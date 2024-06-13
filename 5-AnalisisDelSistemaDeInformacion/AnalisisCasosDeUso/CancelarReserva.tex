@@ -1,0 +1,21 @@
+\begin{analisisCasoDeUso}
+	\centering
+	\begin{tabular} { | m{3cm} | p{13cm} | }
+		\hline
+		\multicolumn{2}{ | c | }{\bfseries Cancelar una reserva}                                                                \\ \hline
+		{\bfseries Precondiciones}  & El usuario debe tener una reserva activa a la que le queden aún 24 horas para empezar.    \\ \hline
+		{\bfseries Postcondiciones} & Se cancela una reserva previamente realizada.                                             \\ \hline
+		{\bfseries Actores    }     & Usuario identificado con rol turista.                                                     \\ \hline
+		{\bfseries Descripción}     & {\bfseries 1.} El usuario accede a la página de gestión de reservas.                      \\
+		                            & {\bfseries 2.} El sistema muestra la lista de reservas realizadas por el usuario.         \\
+		                            & {\bfseries 3.} El usuario selecciona la reserva que desea cancelar.                       \\
+		                            & {\bfseries 4.} El sistema pide confirmación.                                              \\
+		                            & {\bfseries 5.} El usuario confirma la cancelación                                         \\
+		                            & {\bfseries 6.} El sistema cancela la reserva indicada.                                    \\ \hline
+		{\bfseries Variaciones}     & {\bfseries Escenario alternativo 1:} En caso de que la reserva hubiera tenido algún coste \\
+		                            & {\bfseries 7.} El sistema devuelve el coste de la reserva al usuario                      \\ \hline
+		{\bfseries Excepciones}     & Si ocurre un error en el proceso de cancelación, se muestra un mensaje de error.          \\ \hline
+		{\bfseries Notas }          &                                                                                           \\ \hline
+	\end{tabular}
+	\caption{Caso de uso - Cancelar una reserva}
+\end{analisisCasoDeUso}

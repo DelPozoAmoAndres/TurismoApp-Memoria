@@ -1,0 +1,71 @@
+@startuml
+title Inicio de Sesión
+
+actor Usuario
+
+entity “Cliente” as Client
+entity “AuthController” as Controller
+entity “AuthService” as Service
+entity “TokenService” as TokenService
+database “Base de Datos” as DB
+
+Usuario -> Client : Introduce email
+activate Client
+Usuario -> Client : Introduce contraseña
+Usuario -> Client : Pulsa botón de “Iniciar Sesión"
+
+
+
+Client -> Client : checkCookies()
+alt Cookies activadas
+  Client -> Controller : POST /login (credenciales)
+  activate Controller
+  Controller -> Controller: checkInputs(credenciales)
+  alt Inputs válidos
+    Controller -> Service : login(credenciales)
+    activate Service
+    Service -> DB : findOneUser(credenciales.email)
+    activate DB
+    ' alt Lanza excepción
+    '   DB --> Service : Devuelve error
+    '   Service --> Controller : Error desconocido
+    '   Controller --> Client : Error desconocido
+    '   Client --> Usuario : showNotification('Error desconocido')
+    ' else No lanza excepción
+      alt Usuario encontrado
+      DB --> Service : Devuelve el usuario
+      deactivate DB
+      Service -> Service : passwordMatch(usuario.password,credenciales.password)
+      alt Contraseña coincide
+          Service-> TokenService : createToken(usuario)
+          activate TokenService
+          TokenService --> Service : Devuelve el token (JWT)
+          deactivate TokenService
+          Service --> Controller: Devuelve el usuario y el token (JWT)
+          Controller --> Client: Devuelve el usuario y el token (JWT)
+          Client -> Client: Guarda el token en las cookies
+          Client --> Usuario: showNotification('Inicio de sesión correcto')
+          Client --> Usuario: Actualiza los datos de la vista con el usuario logeado
+      else Contraseña no coincide
+          Service --> Controller : Error-Credenciales incorrectas.
+          Controller --> Client : Error-Credenciales incorrectas.
+          Client --> Usuario : showNotification('Credenciales incorrectas')
+      end
+      else Usuario no encontrado
+        Service --> Controller : Error-Credenciales incorrectas.
+        deactivate Service
+        Controller --> Client : Error-Credenciales incorrectas.
+        Client --> Usuario : showNotification('Credenciales incorrectas')
+      end
+    ' end
+  else Inputs inválidos
+    Controller --> Client : Error-Faltan parámetros necesarios
+    deactivate Controller
+    Client --> Usuario : showNotification('Faltan parámetros necesarios')
+  end
+else Cookies desactivadas
+  Client --> Usuario : showNotification('Activa las cookies')
+  deactivate Client
+  deactivate Client
+end
+@enduml

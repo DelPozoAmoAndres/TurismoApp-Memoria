@@ -1,0 +1,19 @@
+@startgantt
+Project starts 2023-03-01
+
+[Gestion inicial] lasts 9 days
+[Gestion inicial] starts at 2023-03-01
+[Gestion inicial] ends at 2023-03-09
+
+[Análisis] lasts 8 days
+[Análisis] starts at 2023-03-10
+[Análisis] ends at 2023-03-17
+
+[Diseño] lasts 17 days
+[Diseño] starts at 2023-03-18
+[Diseño] ends at 2023-04-03
+
+[Implementación] lasts 19 days
+[Implementación] starts at 2023-04-03
+[Implementación] ends at 2023-04-22
+@endgantt
